@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<epi>
+    <mag value="5.0">
+        <depth value="5">7</depth>
+        <depth value="10">7</depth>
+        <depth value="15">6</depth>
+        <depth value="20">6</depth>
+        <depth value="25">6</depth>
+    </mag>
+
+    <mag value="5.1">
+        <depth value="5">7</depth>
+        <depth value="10">7</depth>
+        <depth value="15">6</depth>
+        <depth value="20">6</depth>
+        <depth value="25">6</depth>
+    </mag>
+
+    <mag value="5.2">
+        <depth value="5">7</depth>
+        <depth value="10">7</depth>
+        <depth value="15">7</depth>
+        <depth value="20">6</depth>
+        <depth value="25">6</depth>
+    </mag>
+
+    <mag value="5.3">
+        <depth value="5">7</depth>
+        <depth value="10">7</depth>
+        <depth value="15">7</depth>
+        <depth value="20">6</depth>
+        <depth value="25">6</depth>
+    </mag>
+
+    <mag value="5.4">
+        <depth value="5">7</depth>
+        <depth value="10">7</depth>
+        <depth value="15">7</depth>
+        <depth value="20">6</depth>
+        <depth value="25">6</depth>
+    </mag>
+
+    <mag value="5.5">
+        <depth value="5">8</depth>
+        <depth value="10">7</depth>
+        <depth value="15">7</depth>
+        <depth value="20">7</depth>
+        <depth value="25">6</depth>
+    </mag>
+
+    <mag value="5.6">
+        <depth value="5">8</depth>
+        <depth value="10">7</depth>
+        <depth value="15">7</depth>
+        <depth value="20">7</depth>
+        <depth value="25">6</depth>
+    </mag>
+
+    <mag value="5.7">
+        <depth value="5">8</depth>
+        <depth value="10">7</depth>
+        <depth value="15">7</depth>
+        <depth value="20">7</depth>
+        <depth value="25">6</depth>
+    </mag>
+
+    <mag value="5.8">
+        <depth value="5">8</depth>
+        <depth value="10">7</depth>
+        <depth value="15">7</depth>
+        <depth value="20">7</depth>
+        <depth value="25">6</depth>
+    </mag>
+
+    <mag value="5.9">
+        <depth value="5">8</depth>
+        <depth value="10">8</depth>
+        <depth value="15">7</depth>
+        <depth value="20">7</depth>
+        <depth value="25">7</depth>
+    </mag>
+
+    <mag value="6.0">
+        <depth value="5">8</depth>
+        <depth value="10">8</depth>
+        <depth value="15">7</depth>
+        <depth value="20">7</depth>
+        <depth value="25">7</depth>
+    </mag>
+
+    <mag value="6.1">
+        <depth value="5">8</depth>
+        <depth value="10">8</depth>
+        <depth value="15">8</depth>
+        <depth value="20">7</depth>
+        <depth value="25">7</depth>
+    </mag>
+
+    <mag value="6.2">
+        <depth value="5">8</depth>
+        <depth value="10">8</depth>
+        <depth value="15">8</depth>
+        <depth value="20">7</depth>
+        <depth value="25">7</depth>
+    </mag>
+
+    <mag value="6.3">
+        <depth value="5">8</depth>
+        <depth value="10">8</depth>
+        <depth value="15">8</depth>
+        <depth value="20">8</depth>
+        <depth value="25">7</depth>
+    </mag>
+
+    <mag value="6.4">
+        <depth value="5">8</depth>
+        <depth value="10">8</depth>
+        <depth value="15">8</depth>
+        <depth value="20">8</depth>
+        <depth value="25">7</depth>
+    </mag>
+
+    <mag value="6.5">
+        <depth value="5">9</depth>
+        <depth value="10">8</depth>
+        <depth value="15">8</depth>
+        <depth value="20">8</depth>
+        <depth value="25">8</depth>
+    </mag>
+
+    <mag value="6.6">
+        <depth value="5">9</depth>
+        <depth value="10">8</depth>
+        <depth value="15">8</depth>
+        <depth value="20">8</depth>
+        <depth value="25">8</depth>
+    </mag>
+
+    <mag value="6.7">
+        <depth value="5">9</depth>
+        <depth value="10">9</depth>
+        <depth value="15">8</depth>
+        <depth value="20">8</depth>
+        <depth value="25">8</depth>
+    </mag>
+
+    <mag value="6.8">
+        <depth value="5">9</depth>
+        <depth value="10">9</depth>
+        <depth value="15">9</depth>
+        <depth value="20">8</depth>
+        <depth value="25">8</depth>
+    </mag>
+
+    <mag value="6.9">
+        <depth value="5">9</depth>
+        <depth value="10">9</depth>
+        <depth value="15">9</depth>
+        <depth value="20">9</depth>
+        <depth value="25">8</depth>
+    </mag>
+
+    <mag value="7.0">
+        <depth value="5">9</depth>
+        <depth value="10">9</depth>
+        <depth value="15">9</depth>
+        <depth value="20">9</depth>
+        <depth value="25">9</depth>
+    </mag>
+
+    <mag value="7.1">
+        <depth value="5">9</depth>
+        <depth value="10">9</depth>
+        <depth value="15">9</depth>
+        <depth value="20">9</depth>
+        <depth value="25">9</depth>
+    </mag>
+
+    <mag value="7.2">
+        <depth value="5">10</depth>
+        <depth value="10">10</depth>
+        <depth value="15">9</depth>
+        <depth value="20">9</depth>
+        <depth value="25">9</depth>
+    </mag>
+
+    <mag value="7.3">
+        <depth value="5">10</depth>
+        <depth value="10">10</depth>
+        <depth value="15">9</depth>
+        <depth value="20">9</depth>
+        <depth value="25">9</depth>
+    </mag>
+
+    <mag value="7.4">
+        <depth value="5">10</depth>
+        <depth value="10">10</depth>
+        <depth value="15">9</depth>
+        <depth value="20">9</depth>
+        <depth value="25">9</depth>
+    </mag>
+
+    <mag value="7.5">
+        <depth value="5">10</depth>
+        <depth value="10">10</depth>
+        <depth value="15">9</depth>
+        <depth value="20">9</depth>
+        <depth value="25">9</depth>
+    </mag>
+
+    <mag value="7.6">
+        <depth value="5">10</depth>
+        <depth value="10">10</depth>
+        <depth value="15">10</depth>
+        <depth value="20">9</depth>
+        <depth value="25">9</depth>
+    </mag>
+
+    <mag value="7.7">
+        <depth value="5">10</depth>
+        <depth value="10">10</depth>
+        <depth value="15">10</depth>
+        <depth value="20">9</depth>
+        <depth value="25">9</depth>
+    </mag>
+
+    <mag value="7.8">
+        <depth value="5">10</depth>
+        <depth value="10">10</depth>
+        <depth value="15">10</depth>
+        <depth value="20">10</depth>
+        <depth value="25">9</depth>
+    </mag>
+
+    <!-- 以下这两个是自个儿给出来的，需要找王海鹰再确定一下 -->
+    <mag value="8.0">
+        <depth value="5">12</depth>
+        <depth value="10">11</depth>
+        <depth value="15">11</depth>
+        <depth value="20">10</depth>
+        <depth value="25">9</depth>
+    </mag>
+
+    <mag value="8.1">
+        <depth value="5">10</depth>
+        <depth value="10">10</depth>
+        <depth value="15">10</depth>
+        <depth value="20">10</depth>
+        <depth value="25">9</depth>
+    </mag>
+
+    <mag value="8.2">
+        <depth value="5">10</depth>
+        <depth value="10">10</depth>
+        <depth value="15">10</depth>
+        <depth value="20">10</depth>
+        <depth value="25">9</depth>
+    </mag>
+
+    <mag value="8.3">
+        <depth value="5">10</depth>
+        <depth value="10">10</depth>
+        <depth value="15">10</depth>
+        <depth value="20">10</depth>
+        <depth value="25">9</depth>
+    </mag>
+    <mag value="8.4">
+        <depth value="5">10</depth>
+        <depth value="10">10</depth>
+        <depth value="15">10</depth>
+        <depth value="20">10</depth>
+        <depth value="25">9</depth>
+    </mag>
+    <mag value="8.5">
+        <depth value="5">10</depth>
+        <depth value="10">10</depth>
+        <depth value="15">10</depth>
+        <depth value="20">10</depth>
+        <depth value="25">9</depth>
+    </mag>
+
+    <mag value="8.6">
+        <depth value="5">10</depth>
+        <depth value="10">10</depth>
+        <depth value="15">10</depth>
+        <depth value="20">10</depth>
+        <depth value="25">9</depth>
+    </mag>
+
+    <mag value="8.7">
+        <depth value="5">10</depth>
+        <depth value="10">10</depth>
+        <depth value="15">10</depth>
+        <depth value="20">10</depth>
+        <depth value="25">9</depth>
+    </mag>
+
+    <mag value="8.8">
+        <depth value="5">10</depth>
+        <depth value="10">10</depth>
+        <depth value="15">10</depth>
+        <depth value="20">10</depth>
+        <depth value="25">9</depth>
+    </mag>
+
+    <mag value="8.9">
+        <depth value="5">10</depth>
+        <depth value="10">10</depth>
+        <depth value="15">10</depth>
+        <depth value="20">10</depth>
+        <depth value="25">9</depth>
+    </mag>
+
+    <mag value="9.0">
+        <depth value="5">11</depth>
+        <depth value="10">11</depth>
+        <depth value="15">11</depth>
+        <depth value="20">10</depth>
+        <depth value="25">9</depth>
+    </mag>
+</epi>

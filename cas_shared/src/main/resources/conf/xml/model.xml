@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<models>
+    <model name="地震烈度模型">
+        <program>org.semicloud.cas.model.us.INTENSITY</program>
+        <table>m_intensity</table>
+        <pic-code>DRAW_INTENSITY_PIC</pic-code>
+        <display>INTENSITY MODEL</display>
+    </model>
+    <model name="经济损失分析模型">
+        <program>org.semicloud.cas.model.us.ECONOMIC_USGS</program>
+        <table>m_economic</table>
+        <pic-code>DRAW_ECONOMIC_PIC</pic-code>
+        <display>USGS ECONOMIC MODEL</display>
+    </model>
+    <model name="经济情况分析模型">
+        <program>org.semicloud.cas.model.us.ECONOMIC_INFO</program>
+        <table>m_economicinfo</table>
+        <display>ECONOMIC INFO MODEL</display>
+    </model>
+    <model name="断层判定模型">
+        <program>org.semicloud.cas.model.us.ACTIVE_FAULT</program>
+        <table>m_activefault</table>
+        <pic-code>DRAW_ACTIVEFAULT_PIC</pic-code>
+        <display>FAULT MODEL</display>
+    </model>
+    <model name="交通情况分析模型">
+        <program>org.semicloud.cas.model.us.AIRPORT</program>
+        <table>m_airport</table>
+        <pic-code>DRAW_AIRPORT_PIC</pic-code>
+        <display>AIRPORT MODEL</display>
+    </model>
+    <model name="人口密度分析模型">
+        <program>org.semicloud.cas.model.us.DENSITY</program>
+        <table>m_density</table>
+        <pic-code>DRAW_POP_DENSITY_PIC</pic-code>
+        <display>DENSITY ANALYSIS MODEL</display>
+    </model>
+    <model name="极震区-目标救援城镇分析模型">
+        <program>org.semicloud.cas.model.us.MEIZO_AREA</program>
+        <table>m_area</table>
+        <pic-code>DRAW_EPICENTRE_PIC</pic-code>
+        <display>MEIZO AREA MODEL</display>
+    </model>
+    <model name="文化宗教分析模型">
+        <program>org.semicloud.cas.model.us.CULTURE_RELIGION</program>
+        <table>m_culturereligion</table>
+        <display>CULTURE RELIGION MODEL</display>
+    </model>
+    <model name="历史震情分析模型">
+        <program>org.semicloud.cas.model.us.HISTORICAL</program>
+        <table>m_historical</table>
+        <pic-code>DRAW_HISTORICAL_PIC</pic-code>
+        <display>HISTORICAL MODEL</display>
+    </model>
+    <model name="震区地形地貌分析模型">
+        <program>org.semicloud.cas.model.us.LANDFORM</program>
+        <table>m_landform</table>
+        <display>LANDFORM INFO MODEL</display>
+    </model>
+    <model name="UsgsPager人口伤亡模型">
+        <program>org.semicloud.cas.model.us.CASUALTY_USGS</program>
+        <table>m_casualty</table>
+        <display>USGS PAGER CASUALTY MODEL</display>
+    </model>
+    <model name="UsgsPager县级市人口伤亡模型">
+        <program>org.semicloud.cas.model.us.CASUALTY_USGS_COUNTY</program>
+        <table>m_casualty_county</table>
+        <pic-code>DRAW_CASULATY_PIC</pic-code>
+        <display>USGS PAGER COUNTY CASUALTY MODEL</display>
+    </model>
+    <model name="建筑物损失模型">
+        <program>org.semicloud.cas.model.us.CONSTRUCTION_ZHENGCHAO</program>
+        <table>m_construction</table>
+        <display>ZHENGCHAO CONSTRUCTION</display>
+    </model>
+    <model name="次生灾害判别模型">
+        <program>org.semicloud.cas.model.us.SECONDARY_TSUNAMI</program>
+        <table>m_tsunami</table>
+        <display>TSUNAMI MODEL</display>
+    </model>
+    <model name="山体滑坡分析模型">
+        <program>org.semicloud.cas.model.us.SECONDARY_LANDSLIDE</program>
+        <table>m_landslide</table>
+        <display>LANDSLIDE MODEL</display>
+    </model>
+    <model name="震区通讯分析模型">
+        <program>org.semicloud.cas.model.us.COMMUNICATION</program>
+        <table>m_communication</table>
+        <display>COMMUNICATION MODEL</display>
+    </model>
+    <model name="震区电力分析模型">
+        <program>org.semicloud.cas.model.us.ELECTRICITY</program>
+        <table>m_electricity</table>
+        <display>ELECTRICITY MODEL</display>
+    </model>
+    <model name="灾区所需食品分析模型">
+        <program>org.semicloud.cas.model.us.DISZASTER_FOOD</program>
+        <table>m_food</table>
+        <display>FOOD SUMMARY MODEL</display>
+    </model>
+    <model name="灾区所需帐篷分析模型">
+        <program>org.semicloud.cas.model.us.DISZASTER_TENT</program>
+        <table>m_tent</table>
+        <display>TENT SUMMARY MODEL</display>
+    </model>
+    <model name="灾区医疗配置分析模型">
+        <program>org.semicloud.cas.model.us.DISZASTER_MEDICINE</program>
+        <table>m_medicine</table>
+        <display>MEDICINE SUMMARY MODEL</display>
+    </model>
+    <model name="救援队人数分析模型">
+        <program>org.semicloud.cas.model.us.RESCUE_PEOPLE_NUM</program>
+        <table>m_rescuenumber</table>
+        <display>RESCUE NUMBER MODEL</display>
+    </model>
+    <model name="救援队出队方案分析模型">
+        <program>org.semicloud.cas.model.us.RESCUE_PEOPLE_FORM</program>
+        <table>m_rescueform</table>
+        <display>RESCUR FORM MODEL</display>
+    </model>
+    <model name="救援队后勤保障方案分析模型">
+        <program>org.semicloud.cas.model.us.RESCUE_LOGISTIC</program>
+        <table>m_rescuelogistic</table>
+        <display>RESCUE LOG MODEL</display>
+    </model>
+    <model name="救援队装备配置分析模型">
+        <program>org.semicloud.cas.model.us.RESCUE_EQUIP</program>
+        <table>m_rescueequip</table>
+        <display>RESCUE EQUIP MODEL</display>
+    </model>
+    <model name="响应级别判定模型">
+        <program>org.semicloud.cas.model.us.RESPONSE_LEVEL</program>
+        <table>m_responselevel</table>
+        <display>RESP LEVEL MODEL</display>
+    </model>
+    <model name="国内响应级别判定模型">
+        <program>org.semicloud.cas.model.us.RESPONSE_LEVEL_CHINA</program>
+        <table>m_responselevel_china</table>
+        <display>NATIONAL RESP LEVEL MODEL</display>
+    </model>
+    <model name="建筑物倒塌情况分析模型">
+        <program>org.semicloud.cas.model.us.CONSTRUCTION_MATRIX</program>
+        <table>m_collapse</table>
+        <pic-code>DRAW_COLLAPSE_PIC</pic-code>
+        <display>CONSTRUCTION MATRIX MODEL</display>
+    </model>
+    <model name="USGSPAGER报告">
+        <program>org.semicloud.cas.model.us.PAGER_REPORT</program>
+        <table>m_pagerreport</table>
+        <display>USGS REPORT</display>
+    </model>
+    <model name="USGSPAGER县级市经济损失模型">
+        <program>org.semicloud.cas.model.us.ECONOMIC_USGS_COUNTY</program>
+        <table>m_economic_county</table>
+        <pic-code>DRAW_EC_COUNTY_PIC</pic-code>
+        <display>USGS PAGER COUNTY ECONOMIC LOSS MODEL</display>
+    </model>
+
+    <!-- 以下是重计算模型的定义 -->
+
+    <model name="更新-交通情况分析模型">
+        <program>org.semicloud.cas.model.re.RE_AIRPORT</program>
+        <table>m_airport</table>
+        <pic-code>DRAW_AIRPORT_PIC</pic-code>
+        <display>RE AIRPORT</display>
+    </model>
+
+    <model name="更新-断层判定模型">
+        <program>org.semicloud.cas.model.re.RE_ACTIVE_FAULT</program>
+        <table>m_activefault</table>
+        <pic-code>DRAW_AIRPORT_PIC</pic-code>
+        <display>RE ACTIVEFAULT</display>
+    </model>
+
+    <model name="更新-USGSPAGER人口死亡模型">
+        <program>org.semicloud.cas.model.re.RE_CASYALTY_USGS</program>
+        <table>m_casualty</table>
+        <display>RE USGS CASUALTY</display>
+    </model>
+
+    <model name="更新-USGSPAGER县级市人口死亡模型">
+        <program>org.semicloud.cas.model.re.RE_CASUALTY_USGS_COUNTY</program>
+        <table>m_casualty_county</table>
+        <pic-code>DRAW_CASULATY_PIC</pic-code>
+        <display>RE USGS COUNTY CASUALTY</display>
+    </model>
+
+    <model name="更新-USGSPAGER县级市经济损失模型">
+        <program>org.semicloud.cas.model.re.RE_ECONOMIC_USGS_COUNTY</program>
+        <table>m_economic_county</table>
+        <pic-code>DRAW_EC_COUNTY_PIC</pic-code>
+        <display>RE USGS COUNTY ECONOMIC LOSS</display>
+    </model>
+
+    <model name="更新-人口密度分析模型">
+        <program>org.semicloud.cas.model.re.RE_DENSITY</program>
+        <table>m_density</table>
+        <pic-code>REDRAW_DENSITY_PIC</pic-code>
+        <display>RE DENSITY</display>
+    </model>
+
+    <model name="更新-历史地震分析模型">
+        <program>org.semicloud.cas.model.re.RE_HISTORICAL</program>
+        <table>m_historical</table>
+        <pic-code>DRAW_HISTORICAL_PIC</pic-code>
+        <display>RE HISTORICAL</display>
+    </model>
+
+    <model name="更新-经济损失分析模型">
+        <program>org.semicloud.cas.model.re.RE_ECONOMIC_USGS</program>
+        <table>m_economic</table>
+        <pic-code>REDRAW_ECONOMIC_PIC</pic-code>
+        <display>RE USGS ECONOMIC LOSS</display>
+    </model>
+
+    <model name="更新-地震烈度衰减模型">
+        <program>org.semicloud.cas.model.re.RE_INTENSITY</program>
+        <table>m_intensity</table>
+        <pic-code>REDRAW_INTENSITY_PIC</pic-code>
+        <display>RE INTENSITY</display>
+    </model>
+
+    <model name="更新-极震区分析模型">
+        <program>org.semicloud.cas.model.re.RE_MEIZO_AREA</program>
+        <table>m_area</table>
+        <pic-code>DRAW_EPICENTRE_PIC</pic-code>
+        <display>RE MEIZO AREA</display>
+    </model>
+
+    <!-- 重计算模型定义结束 -->
+
+
+    <intensity-parameters>
+        <parameter code="F0100043" name="中国云南通海-沙海军">
+            <values>4.065,1.229,-1.365,10,3.952,1.127,-1.349,6</values>
+        </parameter>
+    </intensity-parameters>
+</models>

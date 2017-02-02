@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<task-config>
+    <!--此处的时间点的名称要与TimePoint类中的名称保持一致（大写变小写） -->
+    <!--速判要调用的模型 -->
+    <imme>
+        <model>地震烈度模型</model>
+        <model>断层判定模型</model>
+        <model>文化宗教分析模型</model>
+        <model>历史震情分析模型</model>
+        <model>交通情况分析模型</model>
+        <model>震区地形地貌分析模型</model>
+        <model>UsgsPager人口伤亡模型</model>
+        <model>极震区-目标救援城镇分析模型</model>
+        <model>人口密度分析模型</model>
+        <model>经济损失分析模型</model>
+        <model>经济情况分析模型</model>
+        <model>次生灾害判别模型</model>
+        <model>USGSPAGER县级市经济损失模型</model>
+        <model>UsgsPager县级市人口伤亡模型</model>
+        <model>山体滑坡分析模型</model>
+        <model>响应级别判定模型</model>
+        <model>灾区所需食品分析模型</model>
+        <model>灾区所需帐篷分析模型</model>
+        <model>灾区医疗配置分析模型</model>
+        <model>救援队人数分析模型</model>
+        <model>国内响应级别判定模型</model>
+    </imme>
+
+    <!--30分钟综合研判要调用的模型 -->
+    <min_30>
+        <!-- <model>地震烈度模型</model> <model>断层判定模型</model> <model>文化宗教分析模型</model>
+            <model>历史震情分析模型</model> <model>震区地形地貌分析模型</model> <model>交通情况分析模型</model>
+            <model>陈颙海啸模型</model> <model>山体滑坡分析模型</model> <model>经济损失分析模型</model> <model>经济情况分析模型</model>
+            <model>建筑物倒塌情况分析模型</model> <model>UsgsPager县级市人口伤亡模型</model> -->
+    </min_30>
+
+    <!--震后1小时要调用的模型 -->
+    <hour_1>
+        <!-- <model>地震烈度模型</model> <model>断层判定模型</model> <model>文化宗教分析模型</model>
+            <model>历史震情分析模型</model> <model>震区地形地貌分析模型</model> <model>交通情况分析模型</model>
+            <model>陈颙海啸模型</model> <model>山体滑坡分析模型</model> <model>经济损失分析模型</model> <model>经济情况分析模型</model>
+            <model>建筑物倒塌情况分析模型</model> <model>UsgsPager人口伤亡模型</model> <model>USGSPAGER报告</model>
+            <model>USGSPAGER县级市经济损失模型</model> <model>震区通讯分析模型</model> <model>震区电力分析模型</model>
+            <model>灾区所需食品分析模型</model> <model>灾区所需帐篷分析模型</model> <model>灾区医疗配置分析模型</model> -->
+    </hour_1>
+
+    <hour_3>
+        <!-- <model>地震烈度模型</model> <model>断层判定模型</model> <model>文化宗教分析模型</model>
+            <model>历史震情分析模型</model> <model>震区地形地貌分析模型</model> <model>交通情况分析模型</model>
+            <model>陈颙海啸模型</model> <model>山体滑坡分析模型</model> <model>经济损失分析模型</model> <model>建筑物倒塌情况分析模型</model>
+            <model>UsgsPager人口伤亡模型</model> <model>USGSPAGER报告</model> <model>震区通讯分析模型</model>
+            <model>震区电力分析模型</model> <model>灾区所需食品分析模型</model> <model>灾区所需帐篷分析模型</model>
+            <model>灾区医疗配置分析模型</model> <model>救援队人数分析模型</model> <model>救援队出队方案分析模型</model>
+            <model>救援队后勤保障方案分析模型</model> <model>救援队装备配置分析模型</model> -->
+    </hour_3>
+
+    <hour_6>
+        <!-- <model>地震烈度模型</model> <model>断层判定模型</model> <model>文化宗教分析模型</model>
+            <model>历史震情分析模型</model> <model>震区地形地貌分析模型</model> <model>交通情况分析模型</model>
+            <model>陈颙海啸模型</model> <model>山体滑坡分析模型</model> <model>经济损失分析模型</model> <model>建筑物倒塌情况分析模型</model>
+            <model>UsgsPager人口伤亡模型</model> <model>USGSPAGER报告</model> <model>震区通讯分析模型</model>
+            <model>震区电力分析模型</model> <model>灾区所需食品分析模型</model> <model>灾区所需帐篷分析模型</model>
+            <model>灾区医疗配置分析模型</model> <model>救援队人数分析模型</model> <model>救援队出队方案分析模型</model>
+            <model>救援队后勤保障方案分析模型</model> <model>救援队装备配置分析模型</model> <model>极震区-目标救援城镇分析模型</model>
+            <model>人口密度分析模型</model> -->
+    </hour_6>
+
+    <hour_10>
+        <!-- <model>地震烈度模型</model> <model>断层判定模型</model> <model>文化宗教分析模型</model>
+            <model>历史震情分析模型</model> <model>震区地形地貌分析模型</model> <model>交通情况分析模型</model>
+            <model>陈颙海啸模型</model> <model>山体滑坡分析模型</model> <model>经济损失分析模型</model> <model>建筑物倒塌情况分析模型</model>
+            <model>UsgsPager人口伤亡模型</model> <model>USGSPAGER报告</model> <model>震区通讯分析模型</model>
+            <model>震区电力分析模型</model> <model>灾区所需食品分析模型</model> <model>灾区所需帐篷分析模型</model>
+            <model>灾区医疗配置分析模型</model> <model>救援队人数分析模型</model> <model>救援队出队方案分析模型</model>
+            <model>救援队后勤保障方案分析模型</model> <model>救援队装备配置分析模型</model> <model>极震区-目标救援城镇分析模型</model>
+            <model>人口密度分析模型</model> -->
+    </hour_10>
+
+    <hour_14>
+        <!-- <model>断层判定模型</model> <model>文化宗教分析模型</model> <model>历史震情分析模型</model>
+            <model>震区地形地貌分析模型</model> <model>陈颙海啸模型</model> <model>山体滑坡分析模型</model> <model>经济损失分析模型</model>
+            <model>建筑物倒塌情况分析模型</model> <model>UsgsPager人口伤亡模型</model> <model>USGSPAGER报告</model>
+            <model>震区通讯分析模型</model> <model>交通情况分析模型</model> <model>震区电力分析模型</model> <model>灾区所需食品分析模型</model>
+            <model>灾区所需帐篷分析模型</model> <model>灾区医疗配置分析模型</model> <model>救援队人数分析模型</model>
+            <model>救援队出队方案分析模型</model> <model>救援队后勤保障方案分析模型</model> <model>救援队装备配置分析模型</model>
+            <model>人口密度分析模型</model> -->
+        <!--以下属于救援行动阶段研判 -->
+
+        <!-- <model>地震烈度模型</model> <model>极震区-目标救援城镇分析模型</model> -->
+    </hour_14>
+
+    <re-calc>
+        <model>更新-地震烈度衰减模型</model>
+        <model>更新-交通情况分析模型</model>
+        <model>更新-断层判定模型</model>
+        <model>更新-USGSPAGER人口死亡模型</model>
+        <model>更新-USGSPAGER县级市人口死亡模型</model>
+        <model>更新-USGSPAGER县级市经济损失模型</model>
+        <model>更新-人口密度分析模型</model>
+        <model>更新-历史地震分析模型</model>
+        <model>更新-经济损失分析模型</model>
+        <model>更新-极震区分析模型</model>
+    </re-calc>
+</task-config>

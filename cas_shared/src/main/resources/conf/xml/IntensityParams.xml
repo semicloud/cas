@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<intensity-parameters>
+    <regions>
+        <region name="华东地区">
+            <long-axis>
+                <pa>6.046</pa>
+                <pb>1.48</pb>
+                <pc>-2.08</pc>
+                <pr>25.0</pr>
+            </long-axis>
+            <short-axis>
+                <pa>2.617</pa>
+                <pb>1.435</pb>
+                <pc>-1.441</pc>
+                <pr>7.0</pr>
+            </short-axis>
+        </region>
+        <region name="华西地区">
+            <long-axis>
+                <pa>5.643</pa>
+                <pb>1.538</pb>
+                <pc>-2.109</pc>
+                <pr>25.0</pr>
+            </long-axis>
+            <short-axis>
+                <pa>2.941</pa>
+                <pb>1.363</pb>
+                <pc>-1.494</pc>
+                <pr>7.0</pr>
+            </short-axis>
+        </region>
+        <region name="华北地区">
+            <long-axis>
+                <pa>3.0117</pa>
+                <pb>1.5495</pb>
+                <pc>-1.3509</pc>
+                <pr>30.0</pr>
+            </long-axis>
+            <short-axis>
+                <pa>1.7865</pa>
+                <pb>1.4523</pb>
+                <pc>-1.1155</pc>
+                <pr>12.0</pr>
+            </short-axis>
+        </region>
+        <region name="华南地区">
+            <long-axis>
+                <pa>3.6345</pa>
+                <pb>1.6124</pb>
+                <pc>-1.7106</pc>
+                <pr>20.0</pr>
+            </long-axis>
+            <short-axis>
+                <pa>2.7030</pa>
+                <pb>1.5779</pb>
+                <pc>-1.5470</pc>
+                <pr>14.0</pr>
+            </short-axis>
+        </region>
+    </regions>
+</intensity-parameters>

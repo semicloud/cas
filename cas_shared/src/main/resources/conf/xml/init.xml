@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<init-settings>
+    <gis-server>ORCL</gis-server>
+    <!-- dbDir to Linux -->
+    <!-- <db-dirs>+DATA</db-dirs> -->
+    <db-dirs>D:\\APP\\SEMICLOUD\\ORADATA\\ORCL\\#.DBF</db-dirs>
+    <!-- dbDir to Windows -->
+    <!-- <db-dirs>D:\\APP\\SEMICLOUD\\ORADATA\\ORCL\\#.DBF</db-dirs> -->
+    <db-driver>oracle.jdbc.driver.OracleDriver</db-driver>
+    <db-conn>jdbc:oracle:thin:@localhost:1521/ORCL</db-conn>
+    <db-user>baiyan</db-user>
+    <db-password>baiyan</db-password>
+</init-settings>
