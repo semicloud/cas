@@ -18,8 +18,6 @@ cas_change_context/src/main/resources/
 cas_change_context/src/test/
 cas_logger/src/main/resources/
 cas_logger/src/test/
-cas_logger/target/classes/
-cas_logger/target/generated-sources/
 cas_model/src/test/
 cas_scheduler_realtime/src/test/
 cas_scheduler_timepoint/src/test/
