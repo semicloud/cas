@@ -11,12 +11,12 @@ import java.io.IOException;
 import java.util.Scanner;
 
 /**
- * ¸ü¸Äcas³ÌĞò°²×°ÅäÖÃµÄĞ¡³ÌĞò
+ * æ›´æ”¹casç¨‹åºå®‰è£…é…ç½®çš„å°ç¨‹åº
  *
  * @author Semicloud
  * @version 1.0
  */
-class ContextChanger {
+public class ContextChanger {
     static CompositeConfiguration configuration;
     static String gisConfigFilePath = "E:\\CodeWorld\\IdeaJavaProjects\\cas\\cas_shared\\src\\main\\resources\\conf\\ini\\gis.ini";
     static String initConfigFilePath = "E:\\CodeWorld\\IdeaJavaProjects\\cas\\cas_shared\\src\\main\\resources\\conf\\xml\\init.xml";
@@ -46,7 +46,7 @@ class ContextChanger {
     }
 
     private static void displayConfig() {
-        System.out.println("gis.iniÎÄ¼ş£º");
+        System.out.println("gis.iniæ–‡ä»¶ï¼š");
         System.out.println("\tdb.driver=" + getString("db.driver"));
         System.out.println("\tdb.server=" + getString("db.server"));
         System.out.println("\tdb.database=" + getString("db.database"));
@@ -57,7 +57,7 @@ class ContextChanger {
         System.out.println("\tiny.password=" + getString("iny.password"));
         System.out.println("\tiny.exportpath=" + getString("iny.exportpath"));
 
-        System.out.println("init.xmlÎÄ¼ş£º");
+        System.out.println("init.xmlæ–‡ä»¶ï¼š");
         System.out.println("\tgis-server=" + getString("gis-server"));
         System.out.println("\tdb-dirs=" + getString("db-dirs"));
         System.out.println("\tdb-driver=" + getString("db-driver"));
@@ -65,7 +65,7 @@ class ContextChanger {
         System.out.println("\tdb-user=" + getString("db-user"));
         System.out.println("\tdb-password=" + getString("db-password"));
 
-        System.out.println("c3p0-config.xmlÎÄ¼ş£º");
+        System.out.println("c3p0-config.xmlæ–‡ä»¶ï¼š");
         System.out.println("\tuser=" + getXPath("user"));
         System.out.println("\tpassword=" + getXPath("password"));
         System.out.println("\tjdbcUrl=" + getXPath("jdbcUrl"));
@@ -102,7 +102,7 @@ class ContextChanger {
     }
 
     /**
-     * ¿ª·¢»úÅäÖÃ
+     * å¼€å‘æœºé…ç½®
      */
     private static void swithToDevelopEnvironment() {
         saveGISIniFile("db.server", "ORCL");
@@ -125,7 +125,7 @@ class ContextChanger {
     }
 
     /**
-     * ÔËĞĞ»úÅäÖÃ
+     * è¿è¡Œæœºé…ç½®
      */
     private static void swithToRunningEnvironment() {
         saveGISIniFile("db.server", "ORCL_10.9.103.17");
@@ -150,22 +150,23 @@ class ContextChanger {
 
     @SuppressWarnings("resource")
     public static void main(String[] args) throws IOException {
-        System.out.println("¸ü¸Ä¿ª·¢»·¾³ÊÔÓÃ³ÌĞò ver1.0");
-        System.out.println("µ±Ç°¿ª·¢»·¾³ÈçÏÂ£º");
+        System.out.println("æˆ‘å‹’ä¸ªå»");
+        System.out.println("æ›´æ”¹å¼€å‘ç¯å¢ƒè¯•ç”¨ç¨‹åº ver1.0");
+        System.out.println("å½“å‰å¼€å‘ç¯å¢ƒå¦‚ä¸‹ï¼š");
         displayConfig();
-        System.out.println("Çë×ö³öÑ¡Ôñ£º1ÇĞ»»ÖÁ±¾»ú¿ª·¢»·¾³£¬2ÇĞ»»ÖÁÔËĞĞ»·¾³");
+        System.out.println("è¯·åšå‡ºé€‰æ‹©ï¼š1åˆ‡æ¢è‡³æœ¬æœºå¼€å‘ç¯å¢ƒï¼Œ2åˆ‡æ¢è‡³è¿è¡Œç¯å¢ƒ");
         Scanner scanner = new Scanner(System.in);
         int input = scanner.nextInt();
         if (input == 1) {
             swithToDevelopEnvironment();
-            System.out.println("ÅäÖÃÒÑÇ¨ÒÆÖÁ±¾»ú¿ª·¢»·¾³");
+            System.out.println("é…ç½®å·²è¿ç§»è‡³æœ¬æœºå¼€å‘ç¯å¢ƒ");
             displayConfig();
         } else {
             swithToRunningEnvironment();
-            System.out.println("ÅäÖÃÒÑÇ¨ÒÆÖÁÔËĞĞ»·¾³");
+            System.out.println("é…ç½®å·²è¿ç§»è‡³è¿è¡Œç¯å¢ƒ");
             displayConfig();
         }
-        System.out.println("ÅäÖÃĞŞ¸ÄÍê±Ï£¬°´»Ø³µ¼ü¹Ø±Õ...");
+        System.out.println("é…ç½®ä¿®æ”¹å®Œæ¯•ï¼ŒæŒ‰å›è½¦é”®å…³é—­...");
         System.in.read();
         // System.out.println(configuration.getString("db.driver"))
         // System.out.println(configuration.getString("gis-server"))
