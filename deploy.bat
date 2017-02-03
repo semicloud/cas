@@ -1,3 +1,9 @@
+echo install utils components...
+cd /d E:\CodeWorld\IdeaJavaProjects\utils
+call mvn clean install
+echo utils components install complete...
+pause
+
 cd /d E:\CodeWorld\IdeaJavaProjects\cas
 echo compile and install and packaging...
 call mvn clean install package
@@ -31,7 +37,7 @@ xcopy cas_shared\src\main\resources\conf\xml %rootDir%\conf\xml /E
 
 echo copy bat files to %rootDir%...
 xcopy bats %rootDir% /E
-xcopy readme.txt %rootDir% /E
+xcopy README.md %rootDir% /E
 
 echo deploy complete...
 explorer %rootDir%

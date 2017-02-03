@@ -11,13 +11,13 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Maven: org.semicloud.utils:utils_common:0.0.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: org.semicloud.utils:utils_common:1.0-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpclient:4.2.2" level="project" />
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpcore:4.2.2" level="project" />
     <orderEntry type="library" name="Maven: commons-logging:commons-logging:1.1.1" level="project" />
     <orderEntry type="library" name="Maven: commons-codec:commons-codec:1.6" level="project" />
     <orderEntry type="library" name="Maven: net.sourceforge.jeval:jeval:0.9.4" level="project" />
-    <orderEntry type="library" name="Maven: org.semicloud.utils:utils_db:0.0.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: org.semicloud.utils:utils_db:1.0-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: commons-configuration:commons-configuration:1.7" level="project" />
     <orderEntry type="library" name="Maven: commons-collections:commons-collections:3.2.1" level="project" />
     <orderEntry type="library" name="Maven: commons-lang:commons-lang:2.6" level="project" />

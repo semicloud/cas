@@ -65,6 +65,7 @@ public class ModelInvoker {
         // 运行单个模型的代码
         ModelInitilizer initilizer = new ModelInitilizer("N30300E10310020160327222631", "N30300E10310020160327222631");
         CASUALTY_USGS_COUNTY casualty_USGS = new CASUALTY_USGS_COUNTY(initilizer, "d");
+        System.out.println(casualty_USGS.getJson());
 
         // System.out.println(casualty_USGS.getJson());
         // INTENSITY intensity = new INTENSITY(initilizer, "d");

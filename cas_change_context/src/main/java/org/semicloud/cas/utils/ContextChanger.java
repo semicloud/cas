@@ -18,9 +18,9 @@ import java.util.Scanner;
  */
 class ContextChanger {
     static CompositeConfiguration configuration;
-    static String gisConfigFilePath = "E:\\CodeWorld\\JavaProject\\cas\\cas_shared\\src\\main\\resources\\conf\\ini\\gis.ini";
-    static String initConfigFilePath = "E:\\CodeWorld\\JavaProject\\cas\\cas_shared\\src\\main\\resources\\conf\\xml\\init.xml";
-    static String jdbcConfigFilePath = "E:\\CodeWorld\\JavaProject\\utils_db\\src\\main\\resources\\c3p0-config.xml";
+    static String gisConfigFilePath = "E:\\CodeWorld\\IdeaJavaProjects\\cas\\cas_shared\\src\\main\\resources\\conf\\ini\\gis.ini";
+    static String initConfigFilePath = "E:\\CodeWorld\\IdeaJavaProjects\\cas\\cas_shared\\src\\main\\resources\\conf\\xml\\init.xml";
+    static String jdbcConfigFilePath = "E:\\CodeWorld\\IdeaJavaProjects\\utils\\utils_db\\src\\main\\resources\\c3p0-config.xml";
 
     static {
         try {

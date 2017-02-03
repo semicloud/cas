@@ -22,3 +22,5 @@ cas_model/src/test/
 cas_scheduler_realtime/src/test/
 cas_scheduler_timepoint/src/test/
 cas_shared/src/test/
+Dumps/
+logs/
