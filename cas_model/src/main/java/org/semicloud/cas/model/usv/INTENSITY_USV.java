@@ -134,33 +134,41 @@ public class INTENSITY_USV extends USVBase {
     }
 
     /**
-     * 创建要烈度圈数据集，并导出ShapeFile .zip 文件
+     * 根据烈度圈的JSON文件创建烈度圈数据集
      *
-     * @param eqID       eqID
-     * @param jsonObject 模型研判结果的JSON对象
+     * @param eqID       eqID，创建的烈度圈数据集名字为eqID
+     * @param center     震中位置
+     * @param jsonObject 烈度圈的JSON表示
      */
     public static void createIntensityDatasetVector2(String eqID, EpiCenter center, JSONObject jsonObject) {
         try {
             // 设置数据集名称，获取目标数据源（即存储Shp数据集）
             String dsName = eqID;
-            Datasource dataSource = getSaveDataSource();
-            // 如果目标数据源中已经有该数据集，删除之
+            Datasource dataSource = getSaveDataSource(); // 获取保存烈度圈数据集的数据源
+            // 如果目标数据源中已经有名为eqID的数据集，删除之
             if (dataSource.getDatasets().contains(dsName)) {
                 dataSource.getDatasets().delete(dsName);
                 log.warn(String.format("already has dataset %s, deleting it!", dsName));
             }
-            // 创建一个面数据集，并测试是否创建成功
+            // 创建烈度圈数据集，并测试是否创建成功
             dataSource.getDatasets().create(getDatasetVectorInfo(dsName, DatasetType.REGION));
             if (dataSource.getDatasets().contains(dsName)) {
                 DatasetVector dv = (DatasetVector) SimpleGISUtils.getDataset(dsName, dataSource);
+                //region 设置投影，以前高娜说有问题，后来发现无问题
+                // 读取oracle内的投影数据集
                 // PrjCoordSys prjCoordSys = getExportCoordSys();
-                PrjCoordSys prjCoordSys2 = new PrjCoordSys();
-                prjCoordSys2.fromFile("C://Krasovsky_1940_Albers.prj", PrjFileType.ESRI);
-                dv.setPrjCoordSys(prjCoordSys2);
+
+                // 使用外部的shp文件做投影数据集
+                // PrjCoordSys prjCoordSys2 = new PrjCoordSys();
+                // prjCoordSys2.fromFile("C://Krasovsky_1940_Albers.prj", PrjFileType.ESRI);
+                // dv.setPrjCoordSys(prjCoordSys2);
+                //endregion
+
                 // 给这个数据集添加烈度和偏转角属性
                 dv.getFieldInfos().add(getFieldInfo("Intensity", FieldType.DOUBLE));
                 dv.getFieldInfos().add(getFieldInfo("Azimuth", FieldType.DOUBLE));
-                // 使用另一种投影导出
+
+                // 遍历JsonArray，创建椭圆对象
                 JSONArray jsonArray = jsonObject.getJSONArray("circles");
                 for (int i = 0; i < jsonArray.size(); i++) {
                     JSONObject singleJsonObject = jsonArray.getJSONObject(i);

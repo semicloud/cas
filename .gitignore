@@ -1,12 +1,12 @@
-﻿/.idea
-/deploy_*
-/cas_alarm/target
-/cas_logger/target
-/cas_change_context/target
-/cas_model/target
-/cas_scheduler_realtime/target
-/cas_scheduler_timepoint/target
-/cas_shared/target
+﻿.idea
+deploy_*
+cas_alarm/target
+cas_logger/target
+cas_change_context/target
+cas_model/target
+cas_scheduler_realtime/target
+cas_scheduler_timepoint/target
+cas_shared/target
 
 *.class
 *.jar
