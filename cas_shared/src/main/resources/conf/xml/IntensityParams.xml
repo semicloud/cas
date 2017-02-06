@@ -1,7 +1,178 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <intensity-parameters>
+    <!-- 烈度模型适用地区映射 -->
+    <province-region-mappings>
+        <!-- 东北地区 -->
+        <mapping province='黑龙江省' region='东北地区'/>
+        <mapping province='辽宁省' region='东北地区'/>
+        <mapping province='吉林省' region='东北地区'/>
+        <!-- 华北地区 -->
+        <mapping province='北京市' region='华北地区'/>
+        <mapping province='天津市' region='华北地区'/>
+        <mapping province='河北省' region='华北地区'/>
+        <mapping province='山东省' region='华北地区'/>
+        <mapping province='山西省' region='华北地区'/>
+        <mapping province='陕西省' region='华北地区'/>
+        <mapping province='江苏省' region='华北地区'/>
+        <mapping province='安徽省' region='华北地区'/>
+        <mapping province='河南省' region='华北地区'/>
+        <mapping province='上海市' region='华北地区'/>
+        <!-- 华南地区 -->
+        <mapping province='贵州省' region='华南地区'/>
+        <mapping province='广西壮族自治区' region='华南地区'/>
+        <mapping province='广东省' region='华南地区'/>
+        <mapping province='福建省' region='华南地区'/>
+        <mapping province='浙江省' region='华南地区'/>
+        <mapping province='江西省' region='华南地区'/>
+        <mapping province='湖南省' region='华南地区'/>
+        <mapping province='湖北省' region='华南地区'/>
+        <mapping province='海南省' region='华南地区'/>
+        <!--以下三个地区属于华南-->
+        <mapping province='台湾省' region='华南地区'/>
+        <mapping province='香港特别行政区' region='华南地区'/>
+        <mapping province='澳门特别行政区' region='华南地区'/>
+        <!-- 川藏地区 西藏、青海 -->
+        <mapping province='西藏自治区' region='川藏地区'/>
+        <mapping province='青海省' region='川藏地区'/>
+        <!-- 宁夏甘肃 -->
+        <mapping province='甘肃省' region='宁夏甘肃'/>
+        <mapping province='宁夏回族自治区' region='宁夏甘肃'/>
+        <!-- 四川地区 -->
+        <mapping province='四川省' region='四川地区'/>
+        <mapping province='重庆市' region='四川地区'/>
+        <!-- 新疆内蒙 -->
+        <mapping province='新疆维吾尔自治区' region='新疆地区'/>
+        <mapping province='内蒙古自治区' region='内蒙古自治区'/>
+        <!-- 云南省 -->
+        <mapping province='云南省' region='云南地区'/>
+    </province-region-mappings>
+
+    <!-- 国内烈度模型列表 -->
     <regions>
-        <region name="华东地区">
+        <region base="e" description="黑龙江省、吉林省、辽宁省" name="东北地区">
+            <base>e</base>
+            <long-axis>
+                <pa>2.83</pa>
+                <pb>1.42</pb>
+                <pc>-1.39</pc>
+                <pr>15</pr>
+            </long-axis>
+            <short-axis>
+                <pa>2.46</pa>
+                <pb>1.42</pb>
+                <pc>-1.47</pc>
+                <pr>10</pr>
+            </short-axis>
+        </region>
+        <region base="e" description="北京市、天津市、河北省、山东省、山西省、陕西省、江苏省、安徽省、河南省、上海市" name="华北地区">
+            <base>e</base>
+            <long-axis>
+                <pa>3.727</pa>
+                <pb>1.429</pb>
+                <pc>-1.538</pc>
+                <pr>2.0</pr>
+            </long-axis>
+            <short-axis>
+                <pa>1.483</pa>
+                <pb>1.429</pb>
+                <pc>-1.187</pc>
+                <pr>4.0</pr>
+            </short-axis>
+        </region>
+        <region base="e" description="贵州省、广西壮族自治区、广东省、福建省、浙江省、江西省、湖南省、湖北省、海南省、台湾省、香港、澳门" name="华南地区">
+            <base>e</base>
+            <long-axis>
+                <pa>3.635</pa>
+                <pb>1.612</pb>
+                <pc>-1.711</pc>
+                <pr>20.0</pr>
+            </long-axis>
+            <short-axis>
+                <pa>2.703</pa>
+                <pb>1.578</pb>
+                <pc>-1.547</pc>
+                <pr>14.0</pr>
+            </short-axis>
+        </region>
+        <region base="10" description="新疆、内蒙一部分（包头、呼和浩特以西部分）" name="新疆地区">
+            <base>10</base>
+            <long-axis>
+                <pa>4.2697</pa>
+                <pb>1.5175</pb>
+                <pc>-3.9902</pc>
+                <pr>25</pr>
+            </long-axis>
+            <short-axis>
+                <pa>3.2438</pa>
+                <pb>1.3996</pb>
+                <pc>-3.3142</pc>
+                <pr>15.0</pr>
+            </short-axis>
+        </region>
+        <region base="10" description="西藏自治区、青海省" name="川藏地区">
+            <base>10</base>
+            <long-axis>
+                <pa>6.458</pa>
+                <pb>1.2746</pb>
+                <pc>-4.4709</pc>
+                <pr>25</pr>
+            </long-axis>
+            <short-axis>
+                <pa>3.3682</pa>
+                <pb>1.2746</pb>
+                <pc>-3.3119</pc>
+                <pr>9</pr>
+            </short-axis>
+        </region>
+        <region base="e" description="宁夏、甘肃" name="宁夏甘肃">
+            <base>e</base>
+            <long-axis>
+                <pa>4.864</pa>
+                <pb>1.464</pb>
+                <pc>-1.783</pc>
+                <pr>22</pr>
+            </long-axis>
+            <short-axis>
+                <pa>3.032</pa>
+                <pb>1.321</pb>
+                <pc>-1.343</pc>
+                <pr>9.0</pr>
+            </short-axis>
+        </region>
+        <region base="10" description="四川省、重庆市" name="四川地区">
+            <base>10</base>
+            <long-axis>
+                <pa>4.0293</pa>
+                <pb>1.3003</pb>
+                <pc>-3.6404</pc>
+                <pr>10</pr>
+            </long-axis>
+            <short-axis>
+                <pa>2.3816</pa>
+                <pb>1.3003</pb>
+                <pc>-2.8573</pc>
+                <pr>5</pr>
+            </short-axis>
+        </region>
+        <region base="10" description="云南省" name="云南地区">
+            <base>10</base>
+            <long-axis>
+                <pa>5.4154</pa>
+                <pb>1.2792</pb>
+                <pc>-3.8738</pc>
+                <pr>21</pr>
+            </long-axis>
+            <short-axis>
+                <pa>3.3421</pa>
+                <pb>1.1719</pb>
+                <pc>-2.8268</pc>
+                <pr>7</pr>
+            </short-axis>
+        </region>
+        <!-- 华东和华西两个地区的模型就不用了-->
+        <!-- 华东地区和华西地区的模型，还是用原来的 -->
+        <!-- <region base="e" name="华东地区">
+            <base>e</base>
             <long-axis>
                 <pa>6.046</pa>
                 <pb>1.48</pb>
@@ -15,7 +186,8 @@
                 <pr>7.0</pr>
             </short-axis>
         </region>
-        <region name="华西地区">
+        <region base="e" name="华西地区">
+            <base>e</base>
             <long-axis>
                 <pa>5.643</pa>
                 <pb>1.538</pb>
@@ -28,34 +200,22 @@
                 <pc>-1.494</pc>
                 <pr>7.0</pr>
             </short-axis>
-        </region>
-        <region name="华北地区">
-            <long-axis>
-                <pa>3.0117</pa>
-                <pb>1.5495</pb>
-                <pc>-1.3509</pc>
-                <pr>30.0</pr>
-            </long-axis>
-            <short-axis>
-                <pa>1.7865</pa>
-                <pb>1.4523</pb>
-                <pc>-1.1155</pc>
-                <pr>12.0</pr>
-            </short-axis>
-        </region>
-        <region name="华南地区">
-            <long-axis>
-                <pa>3.6345</pa>
-                <pb>1.6124</pb>
-                <pc>-1.7106</pc>
-                <pr>20.0</pr>
-            </long-axis>
-            <short-axis>
-                <pa>2.7030</pa>
-                <pb>1.5779</pb>
-                <pc>-1.5470</pc>
-                <pr>14.0</pr>
-            </short-axis>
-        </region>
+        </region> -->
     </regions>
+
+    <!-- 线源模型 -->
+    <lines>
+        <li>
+            <pa>-4.113</pa>
+            <pb>1.2746</pb>
+            <pc>-0.0015</pc>
+        </li>
+        <r>
+            <pa>3.3641</pa>
+            <pb>1.3157</pb>
+            <pc>-3.1847</pc>
+            <pr>6</pr>
+        </r>
+        <base>10</base>
+    </lines>
 </intensity-parameters>

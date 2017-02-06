@@ -82,7 +82,7 @@ public abstract class RE_BASE_MODEL {
     /**
      * 构造函数
      *
-     * @param initilizer 模型初始化对象
+     * @param editResult 模型初始化对象
      * @param modelName  模型名称
      */
     public RE_BASE_MODEL(EditResult editResult, String modelName) {

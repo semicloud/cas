@@ -173,7 +173,7 @@ public class ModelGal {
     /**
      * 根据震中获取机场位置信息.
      *
-     * @param epiCenterhe 震中
+     * @param epiCenter 震中
      * @return the airports infos
      */
     public static List<Map<String, Object>> getAirportsInfos(EpiCenter epiCenter) {

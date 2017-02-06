@@ -8,3 +8,9 @@
 ## 2017-2-5
 1. 修正了cas_change_context下的src目录错误问题；
 2. 烈度圈导出时使用的投影是ExProjectionStandard数据集，配置在gis.ini中，已复制到本地计算机上；
+
+## 2017-2-6
+1. 高娜今天给了最新的烈度模型，我把笔记本上的IntensityCirlces2.java拷过来了；
+2. cas目录下增加了一个reinstall.bat脚本，用于改变了运行配置后更新安装jar包至本地maven库；
+
+

@@ -142,7 +142,7 @@ public class INTENSITY_USV extends USVBase {
      */
     public static void createIntensityDatasetVector2(String eqID, EpiCenter center, JSONObject jsonObject) {
         try {
-            // 设置数据集名称，获取目标数据源（即存储Shp数据集）
+            // 设置数据集名称，获取目标数据源（即存储Shp数据集的数据源名称）
             String dsName = eqID;
             Datasource dataSource = getSaveDataSource(); // 获取保存烈度圈数据集的数据源
             // 如果目标数据源中已经有名为eqID的数据集，删除之
