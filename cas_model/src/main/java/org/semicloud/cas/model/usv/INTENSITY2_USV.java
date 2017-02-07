@@ -6,6 +6,7 @@ import com.supermap.data.*;
  * 该类用于绘制线源模型的影响场
  * Created by Administrator on 2017/2/6.
  */
+@Deprecated
 public class INTENSITY2_USV extends USVBase {
     public static void main(String[] args) {
         double L = 200 * 1000, R = 100 * 1000;

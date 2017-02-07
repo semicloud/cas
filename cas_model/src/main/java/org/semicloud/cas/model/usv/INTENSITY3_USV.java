@@ -1,11 +1,15 @@
 package org.semicloud.cas.model.usv;
 
 import com.supermap.data.*;
+import org.semicloud.cas.model.al.ModelGal;
+
+import java.util.Map;
 
 /**
  * 该类用于绘制线源模型的影响场
  * Created by Administrator on 2017/2/6.
  */
+@Deprecated
 public class INTENSITY3_USV extends USVBase {
     public static void main(String[] args) {
         double L = 200 * 1000;
@@ -41,8 +45,8 @@ public class INTENSITY3_USV extends USVBase {
         DatasetVector datasetVector = datasource.getDatasets().create(datasetVectorInfo);
         datasetVector.getFieldInfos().add(getFieldInfo("L", FieldType.DOUBLE));
         datasetVector.getFieldInfos().add(getFieldInfo("R", FieldType.DOUBLE));
-        datasetVector.setPrjCoordSys(prjCoordSys);
-        Point2D center = getExProjection(longitude, latitude);
+        // datasetVector.setPrjCoordSys(prjCoordSys);
+        Point2D center = SimpleGISUtils.getProjection(new Point2D(longitude, latitude), datasource);
 
         GeoRectangle rectangle = new GeoRectangle(center, L, 2 * R, rotate);
         Point2Ds rectanglePoints = rectangle.convertToRegion().getPart(0);
@@ -116,6 +120,9 @@ public class INTENSITY3_USV extends USVBase {
         finalRecordSet.close();
         finalRecordSet.dispose();
         datasetVector1.close();
+
+        Map<String, Double> populationMap = ModelGal.getCountyPopulationNumber("FinalResult", "EG_asPopulation");
+        populationMap.forEach((k, v) -> System.out.printf("县名：%s，人口数：%.0f \n", k, v));
 
         ws.getDatasources().closeAll();
         System.out.println("datasource closed..");

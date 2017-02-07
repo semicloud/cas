@@ -16,71 +16,9 @@ import java.util.Map;
 import static org.semicloud.utils.common.MyStringUtils.text;
 
 /**
- * 烈度圈封装类
- */
-class Circle implements Comparable<Circle> {
-    double x;
-    double y;
-    double intensity;
-    double azimuth;
-    double longAxis;
-    double shortAxis;
-
-    public Circle() {
-    }
-
-    /**
-     * @param x         震中经度
-     * @param y         震中纬度
-     * @param intensity 烈度值
-     * @param azimuth   烈度圈偏转角
-     * @param longAxis  长轴值
-     * @param shortAxis 短轴值
-     */
-    public Circle(double x, double y, double intensity, double azimuth, double longAxis, double shortAxis) {
-        this.x = x;
-        this.y = y;
-        this.intensity = intensity;
-        this.azimuth = azimuth;
-        this.longAxis = longAxis;
-        this.shortAxis = shortAxis;
-    }
-
-    @Override
-    public int compareTo(Circle o) {
-        return Double.compare(this.intensity, o.intensity);
-    }
-}
-
-/**
  * 创建地震烈度数据集
  */
 public class INTENSITY_USV extends USVBase {
-
-    // private static List<Circle> getCircles(JSONArray jsonArray) {
-    // ArrayList<Circle> circles = new ArrayList<Circle>();
-    // ArrayList<Circle> dao = new ArrayList<Circle>();
-    // if (jsonArray != null) {
-    // for (int i = 0; i < jsonArray.size(); i++) {
-    // JSONObject singleJsonObject = jsonArray.getJSONObject(i);
-    // double intensity = singleJsonObject.getDouble("intensity"), azimuth =
-    // singleJsonObject
-    // .getDouble("azimuth");
-    // double lng = singleJsonObject.getDouble("longitude"), lat =
-    // singleJsonObject.getDouble("latitude");
-    // double lngx = singleJsonObject.getDouble("longAxis"), shtx =
-    // singleJsonObject.getDouble("shortAxis");
-    // Circle circle = new Circle(lng, lat, intensity, azimuth, lngx, shtx);
-    // circles.add(circle);
-    // }
-    // Collections.sort(circles);
-    // for (int i = circles.size(); i >= 0; i--) {
-    // dao.add(circles.get(i));
-    // }
-    // }
-    // return dao;
-    // }
-
     /**
      * 创建烈度圈数据集
      *

@@ -203,6 +203,44 @@
         </region> -->
     </regions>
 
+    <!--线源模型参数，线源模型需要区分中国东部和中国西部地区-->
+    <line-circle-params>
+        <!--中国东部地区-->
+        <region-east>
+            <!--破裂长度参数-->
+            <l-parameter>
+                <la>0.69</la>
+                <lb>-3.26</lb>
+            </l-parameter>
+            <!--半径参数-->
+            <r-parameter>
+                <pa>5.3023</pa>
+                <pb>1.556</pb>
+                <pc>-2.3632</pc>
+                <pr>15.0</pr>
+            </r-parameter>
+            <!--底数-->
+            <base>10</base>
+        </region-east>
+
+        <!--中国西部地区-->
+        <region-west>
+            <!--破裂长度参数-->
+            <l-parameter>
+                <la>0.48</la>
+                <lb>-1.95</lb>
+            </l-parameter>
+            <!--半径参数-->
+            <r-parameter>
+                <pa>5.3023</pa>
+                <pb>1.556</pb>
+                <pc>-2.3632</pc>
+                <pr>15.0</pr>
+            </r-parameter>
+            <!--底数-->
+            <base>10</base>
+        </region-west>
+    </line-circle-params>
     <!-- 线源模型 -->
     <lines>
         <li>

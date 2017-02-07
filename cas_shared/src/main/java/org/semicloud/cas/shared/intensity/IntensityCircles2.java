@@ -245,4 +245,5 @@ public class IntensityCircles2 {
                                                float startIntensity, float epiIntensity, float magnitude, float depth) {
         return new IntensityCircles2(epiCenter, country, province, startIntensity, epiIntensity, magnitude, depth);
     }
+
 }

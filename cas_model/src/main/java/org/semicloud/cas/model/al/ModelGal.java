@@ -14,6 +14,8 @@ import org.semicloud.cas.shared.EpiCenter;
 import org.semicloud.cas.shared.cfg.Settings;
 import org.semicloud.cas.shared.intensity.IntensityBelt;
 import org.semicloud.cas.shared.intensity.IntensityCircle;
+import org.semicloud.cas.shared.intensity.IntensityLineBelt;
+import org.semicloud.cas.shared.intensity.IntensityLineCircle;
 import org.semicloud.cas.shared.utils.SharedGeoGen;
 import org.semicloud.utils.gis.EngineSettings;
 import org.semicloud.utils.gis.GISEngine;
@@ -121,6 +123,42 @@ public class ModelGal {
     }
 
     /**
+     * 创建线源模型烈度带数据集，并返回烈度带数据集名称
+     *
+     * @param ilb 线源烈度带对象
+     * @return
+     */
+    private static String createLineBeltRegionVectorAndReturnName(IntensityLineBelt ilb) {
+        String result = StringUtils.EMPTY;
+        IntensityLineCircle bigLineCircle = ilb.getBigLineCircle();
+        IntensityLineCircle smallLineCircle = ilb.getSmallLineCircle();
+        String bigInyCircleDatasetVectorName = genName(INY_CIRCLE_NAME);
+        String smallInyCircleDatasetVectorName = genName(INY_CIRCLE_NAME);
+        String earseResultDatasetVector = genName(EARSE_RESULT_NAME);
+        boolean bigCircleCreated = _engine.createDatasetVector(bigInyCircleDatasetVectorName, bigLineCircle.getGeoRegion());
+        boolean smallCircleCreated = _engine.createDatasetVector(smallInyCircleDatasetVectorName,
+                smallLineCircle.getGeoRegion());
+        if (bigCircleCreated && smallCircleCreated) {
+            OverlayAnalystParameterBuilder builder;
+            builder = new OverlayAnalystParameterBuilder(bigInyCircleDatasetVectorName,
+                    RAW_RETAINED_COLS, smallInyCircleDatasetVectorName, RAW_RETAINED_COLS, earseResultDatasetVector,
+                    DatasetType.REGION);
+            if (_engine.earse(builder)) {
+                result = earseResultDatasetVector;
+            } else {
+                _log.error("earse operation emit EXCEPTIONS!!!");
+            }
+            _engine.closeDataset(bigInyCircleDatasetVectorName);
+            _engine.closeDataset(smallInyCircleDatasetVectorName);
+            _engine.deleteDatasets(bigInyCircleDatasetVectorName);
+            _engine.deleteDatasets(smallInyCircleDatasetVectorName);
+        } else {
+            _log.error("create belt dataset occured a ERROR!!!");
+        }
+        return result;
+    }
+
+    /**
      * 创建烈度带数据集，并返回烈度带数据集的名称.
      *
      * @param ib 烈度带
@@ -153,6 +191,21 @@ public class ModelGal {
             _log.error("create belt dataset occured a ERROR!!!");
         }
         return result;
+    }
+
+    /**
+     * 创建线源模型烈度圈对象，并返回数据集名称
+     *
+     * @param ilc 线源模型对象
+     * @return
+     */
+    private static String getLineCircleRegionVectorName(IntensityLineCircle ilc) {
+        String inyCircleDatasetVectorName = genName(INY_CIRCLE_NAME);
+        boolean isCreated = _engine.createDatasetVector(inyCircleDatasetVectorName, ilc.getGeoRegion());
+        if (!isCreated) {
+            inyCircleDatasetVectorName = StringUtils.EMPTY;
+        }
+        return inyCircleDatasetVectorName;
     }
 
     /**
@@ -255,7 +308,7 @@ public class ModelGal {
      * @param gridName    栅格数据集名称
      * @return Map<String,Double>
      */
-    private static Map<String, Double> getCountyPopulationNumber(String datasetName, String gridName) {
+    public static Map<String, Double> getCountyPopulationNumber(String datasetName, String gridName) {
         Map<String, Double> ans = new HashMap<>();
         String intersectRltDsvName = genName(INTERSECT_RESULT_NAME);
         OverlayAnalystParameterBuilder oBuilder = new OverlayAnalystParameterBuilder(getDatasetNameCounty(),
@@ -392,6 +445,52 @@ public class ModelGal {
         _log.info("create edit region belt datasetvector complete, name is " + name);
         return name;
     }
+
+    /**
+     * 统计线源烈度模型下烈度圈中的县级市的人口数
+     *
+     * @return
+     */
+    public static Map<Float, Map<String, Double>> getCountyPopulationUnderIntensityLineCircle(List<IntensityLineCircle> circles) {
+        Map<Float, Map<String, Double>> ans = new HashMap<>();
+        if (circles.size() > 0) {
+            circles.sort((c1, c2) -> Float.compare(c1.getIntensity(), c2.getIntensity()));
+            _log.info("对线源模型烈度圈进行排序，烈度顺序为：");
+            circles.forEach(c -> _log.info("\t" + c.getIntensity()));
+            String gridName = getPopulationDatasetGridName(circles.get(0).getEpiCenter());
+            for (int i = 0; i < circles.size(); i++) {
+                // 如果不是最内圈，则求烈度带中的县级市人口数
+                if (i != circles.size() - 1) {
+                    // 创建一个线源烈度带对象
+                    IntensityLineBelt ilb = new IntensityLineBelt(circles.get(i), circles.get(i + 1));
+                    _log.info("line belt----------------------" + ilb.getIntensity() + ",big="
+                            + ilb.getBigLineCircle().getIntensity() + ",small=" + ilb.getSmallLineCircle().getIntensity());
+                    // 创建一个烈度带数据集并返回其名称
+                    String beltDsvName = createLineBeltRegionVectorAndReturnName(ilb);
+                    // 若创建成功
+                    if (!beltDsvName.isEmpty()) {
+                        // 计算这个烈度带中的县级市人口数
+                        ans.put(ilb.getIntensity(), getCountyPopulationNumber(beltDsvName, gridName));
+                    }
+                    // 如果是最后一个烈度圈
+                } else if (i == circles.size() - 1) {
+                    // 创建一个烈度圈对象
+                    IntensityLineCircle ilc = circles.get(circles.size() - 1);
+                    _log.info("circle----------------------" + ilc.getIntensity());
+                    // 创建烈度圈数据集
+                    String circleDsvName = getLineCircleRegionVectorName(ilc);
+                    // 如果创建成功
+                    if (!circleDsvName.isEmpty()) {
+                        ans.put(ilc.getIntensity(), getCountyPopulationNumber(circleDsvName, gridName));
+                    }
+                }
+            }
+            // 关闭人口栅格数据集
+            _engine.closeDataset(gridName);
+        }
+        return ans;
+    }
+
 
     /**
      * 获得烈度圈集合中县级市的人口数.
