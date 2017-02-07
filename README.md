@@ -13,4 +13,5 @@
 1. 高娜今天给了最新的烈度模型，我把笔记本上的IntensityCirlces2.java拷过来了；
 2. cas目录下增加了一个reinstall.bat脚本，用于改变了运行配置后更新安装jar包至本地maven库；
 
-
+## 2017-2-7
+1. 完成了线源模型的数据集创建（可视化工作），详见INTENSITYT3_USV.java；
