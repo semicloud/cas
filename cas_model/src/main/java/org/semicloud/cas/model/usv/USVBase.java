@@ -40,7 +40,7 @@ public abstract class USVBase {
      * @param y
      * @return
      */
-    protected static Point2D getExProjection(double x, double y) {
+    public static Point2D getExProjection(double x, double y) {
         Point2D point2d = new Point2D(x, y);
         log.info("point in: " + x + "," + y);
         Point2Ds point2Ds = new Point2Ds();

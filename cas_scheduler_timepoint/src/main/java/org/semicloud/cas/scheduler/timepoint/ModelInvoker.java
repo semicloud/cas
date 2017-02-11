@@ -4,7 +4,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.semicloud.cas.model.BaseModel;
 import org.semicloud.cas.model.ModelInitilizer;
-import org.semicloud.cas.model.us.CASUALTY_USGS_COUNTY;
+import org.semicloud.cas.model.us.CASUALTY_USGS_COUNTY_LINE_CIRCLE;
 import org.semicloud.cas.scheduler.timepoint.task.TimePoint;
 import org.semicloud.cas.shared.cfg.Settings;
 
@@ -59,13 +59,12 @@ public class ModelInvoker {
         // 日本地震 N38100E14260020110311124307
         // 甘肃地震 N34500E10420020130722095022
         // 芦山地震 N30300E10300020150520154723
-        // run a model
-        // Initilizer.init("N30300E10300020150127140159");
+        // 汶川地震 N31010E10342020160406151825
 
         // 运行单个模型的代码
-        ModelInitilizer initilizer = new ModelInitilizer("N30300E10310020160327222631", "N30300E10310020160327222631");
-        CASUALTY_USGS_COUNTY casualty_USGS = new CASUALTY_USGS_COUNTY(initilizer, "d");
-        System.out.println(casualty_USGS.getJson());
+        ModelInitilizer initilizer = new ModelInitilizer("N31010E10342020160406151825", "N31010E10342020160406151825");
+        CASUALTY_USGS_COUNTY_LINE_CIRCLE cuclc = new CASUALTY_USGS_COUNTY_LINE_CIRCLE(initilizer, "USGSPAGER县级市人口伤亡模型（基于线源模型）");
+        System.out.println(cuclc.process());
 
         // System.out.println(casualty_USGS.getJson());
         // INTENSITY intensity = new INTENSITY(initilizer, "d");

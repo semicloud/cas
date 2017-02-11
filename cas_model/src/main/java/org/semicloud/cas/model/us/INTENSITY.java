@@ -4,11 +4,16 @@ import com.supermap.data.GeoEllipse;
 import com.supermap.data.Point2D;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
+import org.apache.commons.lang.StringUtils;
 import org.semicloud.cas.model.BaseModel;
 import org.semicloud.cas.model.ModelInitilizer;
 import org.semicloud.cas.model.al.ModelGal;
 import org.semicloud.cas.model.usv.INTENSITY_USV;
 import org.semicloud.cas.shared.intensity.IntensityCircle;
+import org.semicloud.cas.shared.intensity.IntensityLineCircle;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.semicloud.utils.common.MyStringUtils.text;
 
@@ -75,9 +80,33 @@ public class INTENSITY extends BaseModel {
 
         resultJSONObject.put("circles", jsonArray);
         resultJSONObject.put("country", getCountryAttribute().getCountryAbbr());
+        // 导出点源模型数据集
         INTENSITY_USV.createIntensityDatasetVector2(this.eqID, this.epiCenter, resultJSONObject);
         INTENSITY_USV.saveShapeFile(eqID);
         INTENSITY_USV.zipShapeFile(eqID);
+
+        // 注意，如果地震发生在中国，且震级大于等于7.5则生成线源烈度模型的数据集供导出
+        // 2017-02-11
+        if (magnitude >= 7.5 && getCountryAttribute().getCountryAbbr().equals("CN")) {
+            _log.info("地震震级大于7.5且发生在国内，导出线源烈度模型数据集");
+            String dataSetName = eqID + "_L";
+            // 生成线源烈度模型的对象，注意这里的烈度步长是1.0
+            Point2D projection = INTENSITY_USV.getExProjection(epiCenter.getLongitude(), epiCenter.getLatitude());
+            List<IntensityLineCircle> lineCircles = IntensityLineCircle
+                    .getIntensityLineCircles(epiCenter, projection, magnitude, depth, 1.0f);
+            // 把低于8度的烈度圈删除
+            lineCircles = lineCircles.stream().filter(lc -> lc.getIntensity() >= 8.0).collect(Collectors.toList());
+            // 按照烈度从小到大排序
+            lineCircles = lineCircles.stream().sorted((c1, c2) -> Float.compare(c1.getIntensity(), c2.getIntensity()))
+                    .collect(Collectors.toList());
+            // 打印烈度看一下
+            List<Float> exportedIntensities = lineCircles.stream().map(IntensityLineCircle::getIntensity).collect(Collectors.toList());
+            _log.info("Exported Line Circle with Intensities:" + StringUtils.join(exportedIntensities, ", "));
+            INTENSITY_USV.createLineCircleIntensityDatasetVector(dataSetName, epiCenter, lineCircles);
+            INTENSITY_USV.saveShapeFile(dataSetName);
+            INTENSITY_USV.zipShapeFile(dataSetName);
+
+        }
         // TODO 先甭创建数据集了，搜救的数据库上有问题
         // INTENSITY_USV.createIntensityDatasetVector(eqID, resultJSONObject);
         // INTENSITY_USV.createIntensityTextDatasetVector(eqID,

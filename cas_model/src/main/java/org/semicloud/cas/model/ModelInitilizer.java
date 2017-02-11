@@ -85,7 +85,7 @@ public class ModelInitilizer {
         this.startIntensity = Settings.getModelStartIntensity();
         // this.epiIntensity = SharedCpt.getEpiIntensity(magnitude);
         // TODO 在这里使用了新的方法计算了震中烈度值
-        // this.epiIntensity = Epi.getValue(magnitude, depth);
+        // this.epiIntensity = Epi.getValue(magnitude, depth); // 6.3级地震，震中烈度是8；6.4级地震，震中烈度也是8
         this.epiIntensity = SharedCpt.getEpiIntensity(magnitude);
         this.circles = IntensityCircles.getCircles(epiCenter, startIntensity, epiIntensity, magnitude, depth).getList();
         this.countryAttribute = CountryAttribute.lookup(epiCenter);

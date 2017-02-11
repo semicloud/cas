@@ -1,5 +1,7 @@
 package org.semicloud.cas.shared.utils;
 
+import org.junit.Test;
+
 import java.util.Random;
 
 /**
@@ -17,6 +19,13 @@ public class SharedCpt {
      */
     public static float getEpiIntensity(float mag) {
         return Float.parseFloat(Double.toString((mag - 1) * 3 / 2).split("[.]")[0]);
+    }
+
+    @Test
+    public void testGetEpiIntensity() {
+        System.out.println("8.0级地震震中烈度：" + getEpiIntensity(8.0f));
+        System.out.println("9.0级地震震中烈度：" + getEpiIntensity(9.0f));
+        System.out.println("7.5级地震震中烈度：" + getEpiIntensity(7.5f));
     }
 
     /**

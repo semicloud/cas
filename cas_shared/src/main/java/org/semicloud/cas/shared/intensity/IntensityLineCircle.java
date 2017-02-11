@@ -1,8 +1,14 @@
 package org.semicloud.cas.shared.intensity;
 
 import com.supermap.data.*;
+import org.apache.commons.lang.StringUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.semicloud.cas.shared.EpiCenter;
+import org.semicloud.cas.shared.cfg.Settings;
+import org.semicloud.cas.shared.utils.SharedCpt;
 
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +26,8 @@ public class IntensityLineCircle {
     private float intensity;
     private EpiCenter epiCenter;
     private Point2D projection;
+
+    private static Log log = LogFactory.getLog(IntensityLineCircle.class);
 
     /**
      * 生成一个线源烈度圈
@@ -40,14 +48,77 @@ public class IntensityLineCircle {
         this.projection = projection;
     }
 
+    public IntensityLineCircle() {
+    }
+
     /**
-     * 获取线源烈度圈集合
+     * 获取线源模型烈度圈集合
+     * 未完成部分：线源模型参数还是要区分中国东部和中国西部，这里还未区分，需要咨询高娜；另外，计算中心烈度时也需要震源深度，这里还没用
      *
+     * @param center     震中
+     * @param projection 震中经纬度的投影
+     * @param magnitude  震级
+     * @param depth      震源深度
+     * @param step       烈度圈的递增步长
      * @return
      */
-    public List<IntensityLineCircle> getIntensityLineCircle(EpiCenter center, Point2D projection, float magnitude, float depth) {
-        return new ArrayList<>();
+    public static List<IntensityLineCircle> getIntensityLineCircles(EpiCenter center, Point2D projection, float magnitude, float depth, float step) {
+        List<Double> parameters = Settings.getEastChinaLineCircleParams();
+        log.info("加载中国东部线源模型参数：" + StringUtils.join(parameters, ","));
+        double a = parameters.get(0), b = parameters.get(1);
+        double p1 = parameters.get(2), p2 = parameters.get(3), p3 = parameters.get(4), p4 = parameters.get(5);
+        float maxIntensity = SharedCpt.getEpiIntensity(magnitude);
+        float minIntensity = Settings.getModelStartIntensity();
+        // 生成线源模型烈度圈
+        List<IntensityLineCircle> lineCircles = new ArrayList<>();
+        ArcCalculator calculator = new ArcCalculator(center);
+        double azimuth = calculator.getValue();
+        // 烈度最大区域的矩形宽
+        double minRectangleWidth = calculateRectangleWidth(a, b, magnitude);
+        double factor = 3; // 这个弹性系数东西部地区不同
+        double mapUnit = Settings.getGisSettings().getMapUnit(); // GIS地区中的单位，默认是1000
+        for (float i = maxIntensity, j = 0; i >= minIntensity; i -= step, j++) {
+            IntensityLineCircle lineCircle = new IntensityLineCircle();
+            lineCircle.setEpiCenter(center);
+            lineCircle.setProjection(projection);
+            lineCircle.setIntensity(i);
+            lineCircle.setRectangleWidth((minRectangleWidth + minRectangleWidth * j * factor) * mapUnit);
+            lineCircle.setRadius(calcuateCircleRadius(p1, p2, p3, p4, magnitude, i) * mapUnit);
+            lineCircle.setAzimuth(azimuth);
+            lineCircles.add(lineCircle);
+            log.info("加入" + lineCircle);
+        }
+        return lineCircles;
     }
+
+    /**
+     * 计算最高烈度的线源模型矩形的宽
+     *
+     * @return double
+     */
+    static double calculateRectangleWidth(double a, double b, double magnitude) {
+        double width = Math.exp(a * magnitude + b);
+        log.info("线源模型矩形宽度：" + width);
+        return width;
+    }
+
+    /**
+     * 计算线源烈度模型中圆部分的半径
+     *
+     * @param pa        参数a
+     * @param pb        参数b
+     * @param pc        参数c
+     * @param pr        参数d
+     * @param magnitude 震级
+     * @param intensity 烈度
+     * @return double
+     */
+    static double calcuateCircleRadius(double pa, double pb, double pc, double pr, float magnitude, float intensity) {
+        double radius = Math.exp((pa + pb * magnitude - intensity) / (-pc)) - pr;
+        log.info("线源模型圆半径：" + radius);
+        return radius;
+    }
+
 
     /**
      * 获取线源烈度圈的GeoRegion对象
@@ -101,6 +172,14 @@ public class IntensityLineCircle {
         this.rectangleWidth = rectangleWidth;
     }
 
+    public Point2D getProjection() {
+        return projection;
+    }
+
+    public void setProjection(Point2D projection) {
+        this.projection = projection;
+    }
+
     public double getRadius() {
         return radius;
     }
@@ -133,4 +212,10 @@ public class IntensityLineCircle {
         this.intensity = intensity;
     }
 
+    @Override
+    public String toString() {
+        return MessageFormat.format("线源烈度圈，烈度：{0}，震中（{1},{2} -> {3},{4}）" +
+                        "，矩形宽度：{5} KM，圆半径：{6} KM，偏转角：{7}", intensity, epiCenter.getLongitude(), epiCenter.getLatitude(),
+                projection.getX(), projection.getY(), rectangleWidth, radius, azimuth);
+    }
 }

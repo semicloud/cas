@@ -64,5 +64,10 @@
             <artifactId>jetty-servlet</artifactId>
             <version>7.6.12.v20130726</version>
         </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+        </dependency>
     </dependencies>
 </project>

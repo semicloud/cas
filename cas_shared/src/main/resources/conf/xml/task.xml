@@ -24,6 +24,7 @@
         <model>灾区医疗配置分析模型</model>
         <model>救援队人数分析模型</model>
         <model>国内响应级别判定模型</model>
+        <model>USGSPAGER县级市人口伤亡模型（基于线源模型）</model>
     </imme>
 
     <!--30分钟综合研判要调用的模型 -->

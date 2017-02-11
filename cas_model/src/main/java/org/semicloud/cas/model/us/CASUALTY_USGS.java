@@ -119,13 +119,6 @@ public class CASUALTY_USGS extends BaseModel {
         return summariedCasualties;
     }
 
-    // public static void main(String[] args) {
-    // ModelInitilizer initilizer = new
-    // ModelInitilizer("N28200E08470020150425141126", "");
-    // CASUALTY_USGS usgs = new CASUALTY_USGS(initilizer, "");
-    // System.out.println(usgs.getJson());
-    // }
-
     /*
      * (non-Javadoc)
      *
@@ -157,85 +150,3 @@ public class CASUALTY_USGS extends BaseModel {
     }
 }
 
-// class Casualty {
-// float intensity;
-// double population;
-// double ratio;
-// double death;
-//
-// public float getIntensity() {
-// return intensity;
-// }
-//
-// public void setIntensity(float intensity) {
-// this.intensity = intensity;
-// }
-//
-// public double getPopulation() {
-// return population;
-// }
-//
-// public void setPopulation(double population) {
-// this.population = population;
-// }
-//
-// public double getRatio() {
-// return ratio;
-// }
-//
-// public void setRatio(double ratio) {
-// this.ratio = ratio;
-// }
-//
-// public double getDeath() {
-// return death;
-// }
-//
-// public void setDeath(double death) {
-// this.death = death;
-// }
-//
-// @Override
-// public String toString() {
-// return "Casualty [intensity=" + intensity + ", population=" + population +
-// ", ratio=" + ratio + ", death="
-// + death + "]";
-// }
-//
-// public static IFunction<Casualty, Boolean> getCasualtyFunction(float f) {
-// final String str = Integer.toString((int) f);
-// return new IFunction<Casualty, Boolean>() {
-// @Override
-// public Boolean execute(Casualty arg0, ExecCtx arg1) throws Exception {
-// return Float.toString(arg0.getIntensity()).startsWith(str);
-// }
-// };
-// }
-//
-// public static IFunction<Casualty, Double> getPopulationFunction() {
-// return new IFunction<Casualty, Double>() {
-// @Override
-// public Double execute(Casualty arg0, ExecCtx arg1) throws Exception {
-// return arg0.getPopulation();
-// }
-// };
-// }
-//
-// public static IFunction<Casualty, Double> getDeathFunction() {
-// return new IFunction<Casualty, Double>() {
-// @Override
-// public Double execute(Casualty arg0, ExecCtx arg1) throws Exception {
-// return arg0.getDeath();
-// }
-// };
-// }
-//
-// public static IFunction<Casualty, Double> getRatioFunction() {
-// return new IFunction<Casualty, Double>() {
-// @Override
-// public Double execute(Casualty arg0, ExecCtx arg1) throws Exception {
-// return arg0.getRatio();
-// }
-// };
-// }
-// }

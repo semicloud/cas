@@ -6,17 +6,20 @@ import net.sf.json.JSONObject;
 import org.apache.commons.lang.StringUtils;
 import org.semicloud.cas.shared.EpiCenter;
 import org.semicloud.cas.shared.cfg.Settings;
+import org.semicloud.cas.shared.intensity.IntensityLineCircle;
 import org.semicloud.utils.common.file.FileZipper;
 import org.semicloud.utils.gis.ShapeFileExporter;
 
 import java.io.File;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.semicloud.utils.common.MyStringUtils.text;
 
 /**
  * 创建地震烈度数据集
+ * 包括点源模型和线源模型两种
  */
 public class INTENSITY_USV extends USVBase {
     /**
@@ -145,17 +148,71 @@ public class INTENSITY_USV extends USVBase {
     }
 
     /**
+     * 创建线源模型的烈度圈数据集
+     *
+     * @param dataSetName    地震ID，其实也是数据集的名称
+     * @param center         震中
+     * @param lineCircleList 线源烈度模型对象
+     */
+    public static void createLineCircleIntensityDatasetVector(String dataSetName, EpiCenter center, List<IntensityLineCircle> lineCircleList) {
+        try {
+            // 设置数据集名称，获取目标数据源（即存储Shp数据集的数据源名称）
+            Datasource dataSource = getSaveDataSource(); // 获取保存烈度圈数据集的数据源
+            // 如果目标数据源中已经有名为eqID的数据集，删除之
+            if (dataSource.getDatasets().contains(dataSetName)) {
+                dataSource.getDatasets().delete(dataSetName);
+                log.warn(String.format("already has dataset %s, deleting it!", dataSetName));
+            }
+            // 创建烈度圈数据集，并测试是否创建成功
+            dataSource.getDatasets().create(getDatasetVectorInfo(dataSetName, DatasetType.REGION));
+            if (dataSource.getDatasets().contains(dataSetName)) {
+                DatasetVector datasetVector = (DatasetVector) SimpleGISUtils.getDataset(dataSetName, dataSource);
+                // 给这个数据集添加烈度和偏转角属性
+                datasetVector.getFieldInfos().add(getFieldInfo("Intensity", FieldType.DOUBLE));
+                datasetVector.getFieldInfos().add(getFieldInfo("Azimuth", FieldType.DOUBLE));
+                datasetVector.getFieldInfos().add(getFieldInfo("RectangeWidth", FieldType.DOUBLE));
+                datasetVector.getFieldInfos().add(getFieldInfo("Radius", FieldType.DOUBLE));
+
+                Point2D projection = getExProjection(center.getLongitude(), center.getLatitude());
+                for (IntensityLineCircle lineCircle : lineCircleList) {
+                    // 因为圈儿中的投影都用用来计算人口伤亡的，和导出时的投影不一样，所以需要重新设置一下
+                    lineCircle.setProjection(projection);
+                    Recordset recordset = datasetVector.getRecordset(false, CursorType.DYNAMIC);
+                    if (recordset != null) {
+                        recordset.addNew(lineCircle.getGeoRegion());
+                        recordset.setDouble("Intensity", lineCircle.getIntensity());
+                        recordset.setDouble("Azimuth", lineCircle.getAzimuth());
+                        recordset.setDouble("RectangeWidth", lineCircle.getRectangleWidth());
+                        recordset.setDouble("Radius", lineCircle.getRadius());
+                        recordset.update();
+                        recordset.close();
+                        recordset.dispose();
+                    }
+                }
+                datasetVector.setPrjCoordSys(getExportCoordSys());
+                datasetVector.close();
+            }
+            log.info("eqID:" + dataSetName + ", line circle dataset create success!");
+        } catch (Exception ex) {
+            log.error(String.format("creating dataset for [%s] failed, messages: %s .", dataSetName, ex.getMessage()));
+        } finally {
+            closeTargetDatasource();
+        }
+    }
+
+
+    /**
      * 将创建好的烈度圈数据集保存为shapefile文件
      *
-     * @param eqID
+     * @param dataSetName
      */
-    public static void saveShapeFile(String eqID) {
+    public static void saveShapeFile(String dataSetName) {
         Datasource targetDatasource = getSaveDataSource();
         try {
-            if (targetDatasource.getDatasets().contains(eqID)) {
-                ShapeFileExporter.export(targetDatasource, eqID, Settings.getShpFileExportedPath());
+            if (targetDatasource.getDatasets().contains(dataSetName)) {
+                ShapeFileExporter.export(targetDatasource, dataSetName, Settings.getShpFileExportedPath());
             } else {
-                log.error(String.format("dataset %s does not exist, exporting failed!", eqID));
+                log.error(String.format("dataset %s does not exist, exporting failed!", dataSetName));
             }
         } catch (Exception ex) {
             log.error("a error occurs when save shp file, message:" + ex.getMessage());
@@ -167,13 +224,13 @@ public class INTENSITY_USV extends USVBase {
     /**
      * 将已经导出的shapefile压缩为.zip文件
      *
-     * @param eqID
+     * @param dataSetName 数据集名
      */
-    public static void zipShapeFile(String eqID) {
-        File file = new File(Settings.getShpFileExportedPath() + "\\" + eqID + "\\" + eqID + ".shp");
+    public static void zipShapeFile(String dataSetName) {
+        File file = new File(Settings.getShpFileExportedPath() + "\\" + dataSetName + "\\" + dataSetName + ".shp");
         if (file.exists()) {
-            String shpFolder = Settings.getShpFileExportedPath() + "\\" + eqID;
-            String zipPathName = Settings.getShpFileExportedPath() + "\\" + eqID + ".zip";
+            String shpFolder = Settings.getShpFileExportedPath() + "\\" + dataSetName;
+            String zipPathName = Settings.getShpFileExportedPath() + "\\" + dataSetName + ".zip";
             FileZipper.zipSimpleFolder(new File(shpFolder), StringUtils.EMPTY, zipPathName);
             if (new File(zipPathName).exists()) {
                 log.info(String.format("[%s] file is generated!", zipPathName));

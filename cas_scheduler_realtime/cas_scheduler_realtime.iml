@@ -12,6 +12,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="cas_model" />
+    <orderEntry type="library" name="Maven: junit:junit:4.7" level="project" />
     <orderEntry type="library" name="Maven: org.op4j:op4j:1.2" level="project" />
     <orderEntry type="library" name="Maven: commons-lang:commons-lang:2.4" level="project" />
     <orderEntry type="library" name="Maven: org.javaruntype:javaruntype:1.2" level="project" />

@@ -155,6 +155,12 @@
         <pic-code>DRAW_EC_COUNTY_PIC</pic-code>
         <display>USGS PAGER COUNTY ECONOMIC LOSS MODEL</display>
     </model>
+    <model name="USGSPAGER县级市人口伤亡模型（基于线源模型）">
+        <program>org.semicloud.cas.model.us.CASUALTY_USGS_COUNTY_LINE_CIRCLE</program>
+        <table>m_casualty_county_line_circle</table>
+        <pic-code>DRAW_CASUALTY_COUNTY_LC</pic-code>
+        <display>USGS PAGER COUNTY CASUALTY (LINE CIRCLE BASED)</display>
+    </model>
 
     <!-- 以下是重计算模型的定义 -->
 

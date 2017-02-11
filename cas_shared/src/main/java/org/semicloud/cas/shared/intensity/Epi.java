@@ -5,6 +5,8 @@ import org.apache.commons.configuration.XMLConfiguration;
 import org.apache.commons.configuration.tree.xpath.XPathExpressionEngine;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.junit.Assert;
+import org.junit.Test;
 
 /**
  * 通过epi.xml查询震中烈度
@@ -61,7 +63,9 @@ public class Epi {
         return epi;
     }
 
-    // public static void main(String[] args) {
-    // System.out.println(Epi.getValue(6.6f, 14.0f));
-    // }
+    @Test
+    public void testGetValue() {
+        Assert.assertEquals(8.0, Epi.getValue(6.3f, 10), 0);
+        Assert.assertEquals(8.0, Epi.getValue(6.4f, 10), 0);
+    }
 }
