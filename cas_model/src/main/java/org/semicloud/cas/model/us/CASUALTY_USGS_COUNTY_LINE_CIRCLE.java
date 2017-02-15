@@ -6,7 +6,7 @@ import net.sf.json.JSONObject;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.math3.distribution.NormalDistribution;
 import org.semicloud.cas.model.BaseModel;
-import org.semicloud.cas.model.ModelInitilizer;
+import org.semicloud.cas.model.ModelInitializer;
 import org.semicloud.cas.model.al.ModelGal;
 import org.semicloud.cas.model.us.entity.FatalityInfo;
 import org.semicloud.cas.shared.EpiCenter;
@@ -48,7 +48,7 @@ public class CASUALTY_USGS_COUNTY_LINE_CIRCLE extends BaseModel {
      * @param initilizer ModelInitilizer对象
      * @param modelName  模型名称
      */
-    public CASUALTY_USGS_COUNTY_LINE_CIRCLE(ModelInitilizer initilizer, String modelName) {
+    public CASUALTY_USGS_COUNTY_LINE_CIRCLE(ModelInitializer initilizer, String modelName) {
         super(initilizer, modelName);
     }
 

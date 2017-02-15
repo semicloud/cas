@@ -7,7 +7,7 @@ import org.apache.commons.math3.distribution.NormalDistribution;
 import org.op4j.Op;
 import org.op4j.functions.FnDouble;
 import org.semicloud.cas.model.BaseModel;
-import org.semicloud.cas.model.ModelInitilizer;
+import org.semicloud.cas.model.ModelInitializer;
 import org.semicloud.cas.model.al.ModelDal;
 import org.semicloud.cas.model.al.ModelGal;
 import org.semicloud.utils.common.Convert;
@@ -45,7 +45,7 @@ public class CASUALTY_USGS extends BaseModel {
      * @param initilizer 模型初始化对象
      * @param modelName  模型名称
      */
-    public CASUALTY_USGS(ModelInitilizer initilizer, String modelName) {
+    public CASUALTY_USGS(ModelInitializer initilizer, String modelName) {
         super(initilizer, modelName);
     }
 

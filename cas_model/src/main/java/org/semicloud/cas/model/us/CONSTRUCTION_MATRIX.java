@@ -5,7 +5,7 @@ import net.sf.json.JSONObject;
 import org.apache.commons.jxpath.JXPathContext;
 import org.apache.commons.lang.StringUtils;
 import org.semicloud.cas.model.BaseModel;
-import org.semicloud.cas.model.ModelInitilizer;
+import org.semicloud.cas.model.ModelInitializer;
 import org.semicloud.cas.model.al.ModelGal;
 import org.semicloud.cas.shared.intensity.IntensityCircle;
 import org.semicloud.utils.db.factory.DaoFactory;
@@ -27,7 +27,7 @@ public class CONSTRUCTION_MATRIX extends BaseModel {
      * @param initilizer 模型初始化对象
      * @param modelName  模型名称
      */
-    public CONSTRUCTION_MATRIX(ModelInitilizer initilizer, String modelName) {
+    public CONSTRUCTION_MATRIX(ModelInitializer initilizer, String modelName) {
         super(initilizer, modelName);
     }
 

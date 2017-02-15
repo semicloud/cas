@@ -1,7 +1,7 @@
 package org.semicloud.cas.model.us;
 
 import org.semicloud.cas.model.BaseModel;
-import org.semicloud.cas.model.ModelInitilizer;
+import org.semicloud.cas.model.ModelInitializer;
 import org.semicloud.cas.model.al.ModelDal;
 import org.semicloud.utils.common.Convert;
 
@@ -16,7 +16,7 @@ public class RESPONSE_LEVEL extends BaseModel {
      * @param initilizer 模型初始化对象
      * @param modelName  模型名称
      */
-    public RESPONSE_LEVEL(ModelInitilizer initilizer, String modelName) {
+    public RESPONSE_LEVEL(ModelInitializer initilizer, String modelName) {
         super(initilizer, modelName);
     }
 

@@ -2,7 +2,7 @@ package org.semicloud.cas.model.us;
 
 import org.apache.commons.collections.MapUtils;
 import org.semicloud.cas.model.BaseModel;
-import org.semicloud.cas.model.ModelInitilizer;
+import org.semicloud.cas.model.ModelInitializer;
 import org.semicloud.cas.model.al.ModelDal;
 import org.semicloud.cas.shared.utils.SharedCpt;
 import org.semicloud.utils.common.Convert;
@@ -27,7 +27,7 @@ public class DISZASTER_FOOD extends BaseModel {
      * @param initilizer 模型初始化对象
      * @param modelName  模型名称
      */
-    public DISZASTER_FOOD(ModelInitilizer initilizer, String modelName) {
+    public DISZASTER_FOOD(ModelInitializer initilizer, String modelName) {
         super(initilizer, modelName);
     }
 

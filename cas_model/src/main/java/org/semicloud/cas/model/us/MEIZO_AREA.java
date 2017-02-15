@@ -3,7 +3,7 @@ package org.semicloud.cas.model.us;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.semicloud.cas.model.BaseModel;
-import org.semicloud.cas.model.ModelInitilizer;
+import org.semicloud.cas.model.ModelInitializer;
 import org.semicloud.cas.model.al.ModelGal;
 import org.semicloud.cas.shared.cfg.Settings;
 import org.semicloud.cas.shared.intensity.IntensityCircle;
@@ -27,7 +27,7 @@ public class MEIZO_AREA extends BaseModel {
      * @param initilizer 模型初始化对象
      * @param modelName  模型名称
      */
-    public MEIZO_AREA(ModelInitilizer initilizer, String modelName) {
+    public MEIZO_AREA(ModelInitializer initilizer, String modelName) {
         super(initilizer, modelName);
     }
 

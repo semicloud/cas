@@ -2,7 +2,7 @@ package org.semicloud.cas.model.us;
 
 import org.apache.commons.lang.StringUtils;
 import org.semicloud.cas.model.BaseModel;
-import org.semicloud.cas.model.ModelInitilizer;
+import org.semicloud.cas.model.ModelInitializer;
 import org.semicloud.cas.model.al.ModelDal;
 
 /**
@@ -16,7 +16,7 @@ public class RESPONSE_LEVEL_CHINA extends BaseModel {
      * @param initilizer 模型初始化对象
      * @param modelName  模型名称
      */
-    public RESPONSE_LEVEL_CHINA(ModelInitilizer initilizer, String modelName) {
+    public RESPONSE_LEVEL_CHINA(ModelInitializer initilizer, String modelName) {
         super(initilizer, modelName);
     }
 

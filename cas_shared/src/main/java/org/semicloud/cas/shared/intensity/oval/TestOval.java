@@ -19,7 +19,6 @@ public class TestOval {
             Oval oval = loadModel(code);
             System.out.println("================CODE:" + code + "==================");
             for (float m = 5.5f; m <= 9.0f; m += 1.0f) {
-                // TODO 2015年9月22日，下面的代码是旧的计算中心烈度的方法，需要的时候可以恢复
                 float i_m = SharedCpt.getEpiIntensity(m);
                 // 下面是新的（王海鹰提供的）方法
                 // float i_m = Epi.getValue(m, depth);

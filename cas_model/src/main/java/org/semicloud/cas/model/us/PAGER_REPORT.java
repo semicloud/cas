@@ -1,7 +1,7 @@
 package org.semicloud.cas.model.us;
 
 import org.semicloud.cas.model.BaseModel;
-import org.semicloud.cas.model.ModelInitilizer;
+import org.semicloud.cas.model.ModelInitializer;
 import org.semicloud.cas.shared.cfg.Settings;
 import org.semicloud.utils.db.factory.DaoFactory;
 
@@ -22,7 +22,7 @@ public class PAGER_REPORT extends BaseModel {
      * @param initilizer the initilizer
      * @param modelName  the model name
      */
-    public PAGER_REPORT(ModelInitilizer initilizer, String modelName) {
+    public PAGER_REPORT(ModelInitializer initilizer, String modelName) {
         super(initilizer, modelName);
         this.eqID = initilizer.getEqID();
     }

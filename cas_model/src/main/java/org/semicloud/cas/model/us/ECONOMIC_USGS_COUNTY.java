@@ -8,7 +8,7 @@ import org.apache.commons.collections.Transformer;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.math3.distribution.NormalDistribution;
 import org.semicloud.cas.model.BaseModel;
-import org.semicloud.cas.model.ModelInitilizer;
+import org.semicloud.cas.model.ModelInitializer;
 import org.semicloud.cas.model.al.ModelGal;
 import org.semicloud.cas.shared.cfg.Settings;
 import org.semicloud.cas.shared.intensity.IntensityCircle;
@@ -43,7 +43,7 @@ public class ECONOMIC_USGS_COUNTY extends BaseModel {
      * @param initilizer 模型初始化对象
      * @param modelName  模型名称
      */
-    public ECONOMIC_USGS_COUNTY(ModelInitilizer initilizer, String modelName) {
+    public ECONOMIC_USGS_COUNTY(ModelInitializer initilizer, String modelName) {
         super(initilizer, modelName);
         _parameter = ECONOMIC_USGS_PARAM.lookup(getCountryAttribute().getCountryAbbr());
     }
@@ -192,8 +192,8 @@ public class ECONOMIC_USGS_COUNTY extends BaseModel {
     }
 
     // public static void main(String[] args) {
-    // ModelInitilizer initilizer = new
-    // ModelInitilizer("N30300E10170020141122165550", "");
+    // ModelInitializer initilizer = new
+    // ModelInitializer("N30300E10170020141122165550", "");
     // ECONOMIC_USGS_COUNTY county = new ECONOMIC_USGS_COUNTY(initilizer, "");
     // System.out.println(county.getJson());
     // }

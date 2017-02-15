@@ -9,7 +9,7 @@ import com.supermap.data.Point2D;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.semicloud.cas.model.BaseModel;
-import org.semicloud.cas.model.ModelInitilizer;
+import org.semicloud.cas.model.ModelInitializer;
 import org.semicloud.cas.model.al.ModelGal;
 import org.semicloud.cas.shared.EpiCenter;
 import org.semicloud.cas.shared.cfg.Settings;
@@ -31,7 +31,7 @@ public class HISTORICAL extends BaseModel {
      * @param initilizer 模型初始化对象
      * @param modelName  模型名称
      */
-    public HISTORICAL(ModelInitilizer initilizer, String modelName) {
+    public HISTORICAL(ModelInitializer initilizer, String modelName) {
         super(initilizer, modelName);
     }
 

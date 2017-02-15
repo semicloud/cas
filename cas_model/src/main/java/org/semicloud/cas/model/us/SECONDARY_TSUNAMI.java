@@ -1,7 +1,7 @@
 package org.semicloud.cas.model.us;
 
 import org.semicloud.cas.model.BaseModel;
-import org.semicloud.cas.model.ModelInitilizer;
+import org.semicloud.cas.model.ModelInitializer;
 import org.semicloud.cas.model.al.ModelGal;
 
 import java.util.List;
@@ -18,7 +18,7 @@ public class SECONDARY_TSUNAMI extends BaseModel {
      * @param initilizer the initilizer
      * @param modelName  the model name
      */
-    public SECONDARY_TSUNAMI(ModelInitilizer initilizer, String modelName) {
+    public SECONDARY_TSUNAMI(ModelInitializer initilizer, String modelName) {
         super(initilizer, modelName);
     }
 
@@ -33,8 +33,8 @@ public class SECONDARY_TSUNAMI extends BaseModel {
     }
 
     // public static void main(String[] args) {
-    // ModelInitilizer initilizer = new
-    // ModelInitilizer("N62000W15180020140926015117",
+    // ModelInitializer initilizer = new
+    // ModelInitializer("N62000W15180020140926015117",
     // "N27100E10300020140915132904_MIN30");
     // SECONDARY_TSUNAMI tsunami = new SECONDARY_TSUNAMI(initilizer, "");
     // System.out.println(tsunami.getJson());

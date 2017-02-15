@@ -1,7 +1,7 @@
 package org.semicloud.cas.model.us;
 
 import org.semicloud.cas.model.BaseModel;
-import org.semicloud.cas.model.ModelInitilizer;
+import org.semicloud.cas.model.ModelInitializer;
 
 /**
  * 次生灾害模型-山体滑坡
@@ -14,7 +14,7 @@ public class SECONDARY_LANDSLIDE extends BaseModel {
      * @param initilizer 模型初始化对象
      * @param modelName  模型名称
      */
-    public SECONDARY_LANDSLIDE(ModelInitilizer initilizer, String modelName) {
+    public SECONDARY_LANDSLIDE(ModelInitializer initilizer, String modelName) {
         super(initilizer, modelName);
     }
 

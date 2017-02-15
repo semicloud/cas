@@ -1,7 +1,7 @@
 package org.semicloud.cas.model.us;
 
 import org.semicloud.cas.model.BaseModel;
-import org.semicloud.cas.model.ModelInitilizer;
+import org.semicloud.cas.model.ModelInitializer;
 import org.semicloud.cas.model.al.ModelDal;
 import org.semicloud.cas.shared.utils.SharedCpt;
 import org.semicloud.utils.common.Convert;
@@ -29,7 +29,7 @@ public class DISZASTER_TENT extends BaseModel {
      * @param initilizer 模型初始化对象
      * @param modelName  模型名称
      */
-    public DISZASTER_TENT(ModelInitilizer initilizer, String modelName) {
+    public DISZASTER_TENT(ModelInitializer initilizer, String modelName) {
         super(initilizer, modelName);
     }
 

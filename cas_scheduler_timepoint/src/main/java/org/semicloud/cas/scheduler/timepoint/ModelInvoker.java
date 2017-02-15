@@ -3,7 +3,7 @@ package org.semicloud.cas.scheduler.timepoint;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.semicloud.cas.model.BaseModel;
-import org.semicloud.cas.model.ModelInitilizer;
+import org.semicloud.cas.model.ModelInitializer;
 import org.semicloud.cas.model.us.CASUALTY_USGS_COUNTY_LINE_CIRCLE;
 import org.semicloud.cas.scheduler.timepoint.task.TimePoint;
 import org.semicloud.cas.shared.cfg.Settings;
@@ -62,7 +62,7 @@ public class ModelInvoker {
         // 汶川地震 N31010E10342020160406151825
 
         // 运行单个模型的代码
-        ModelInitilizer initilizer = new ModelInitilizer("N31010E10342020160406151825", "N31010E10342020160406151825");
+        ModelInitializer initilizer = new ModelInitializer("N31010E10342020160406151825", "N31010E10342020160406151825");
         CASUALTY_USGS_COUNTY_LINE_CIRCLE cuclc = new CASUALTY_USGS_COUNTY_LINE_CIRCLE(initilizer, "USGSPAGER县级市人口伤亡模型（基于线源模型）");
         System.out.println(cuclc.process());
 
@@ -85,13 +85,13 @@ public class ModelInvoker {
     public List<BaseModel> getModels(TimePoint timePoint, String eqID) {
         List<BaseModel> models = new ArrayList<>();
         String taskID = eqID.concat("_").concat(timePoint.name().toUpperCase());
-        ModelInitilizer initilizer = new ModelInitilizer(eqID, taskID);
+        ModelInitializer initilizer = new ModelInitializer(eqID, taskID);
         for (String modelName : Settings.getModelNames(timePoint.name().toLowerCase())) {
             models.add(loadModel(initilizer, modelName));
         }
         // if (BaseModel.willComputed(eqID)) {
         // // 这行语句必须在if条件之后做，因为ModelInitilizer就需要GIS操作了
-        // ModelInitilizer initilizer = new ModelInitilizer(eqID, taskID);
+        // ModelInitializer initilizer = new ModelInitializer(eqID, taskID);
         // for (String modelName :
         // Settings.getModelNames(timePoint.name().toLowerCase())) {
         // models.add(loadModel(initilizer, modelName));
@@ -116,13 +116,13 @@ public class ModelInvoker {
      * @return the base model
      */
     @SuppressWarnings({"rawtypes", "unchecked"})
-    public BaseModel loadModel(ModelInitilizer initilizer, String modelName) {
+    public BaseModel loadModel(ModelInitializer initilizer, String modelName) {
         BaseModel model = null;
         try {
             // 生成初始化参数：eqID，taskID，模型名称
             Object[] parameters = new Object[]{initilizer, modelName};
             // 设置构造器的数据类型的列表
-            Class[] types = {ModelInitilizer.class, String.class};
+            Class[] types = {ModelInitializer.class, String.class};
             // 获取模型类的Class对象
             Class c = Class.forName(Settings.getModelProgram(modelName));
             // 获取构造器对象

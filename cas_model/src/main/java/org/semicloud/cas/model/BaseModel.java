@@ -111,41 +111,41 @@ public abstract class BaseModel {
     /**
      * 构造函数.
      *
-     * @param initilizer ModelInitilizer对象
-     * @param modelName  模型名称
+     * @param initializer ModelInitializer对象
+     * @param modelName   模型名称
      */
-    public BaseModel(ModelInitilizer initilizer, String modelName) {
-        _log.info(StringUtils.center("initilize base model", 80, "-"));
+    public BaseModel(ModelInitializer initializer, String modelName) {
+        _log.info(StringUtils.center("initialize base model", 80, "-"));
         // 地震事件本身的属性
-        this.eqID = initilizer.getEqID();
+        this.eqID = initializer.getEqID();
         _log.info("eqID:" + eqID);
 
-        this.taskID = initilizer.getTaskID();
+        this.taskID = initializer.getTaskID();
         _log.info("taskID:" + taskID);
 
-        this.epiCenter = initilizer.getEpiCenter();
+        this.epiCenter = initializer.getEpiCenter();
         _log.info(text("epi center, lng={0} lat={1}", epiCenter.getLongitude(), epiCenter.getLatitude()));
 
-        this.magnitude = initilizer.getMagnitude();
+        this.magnitude = initializer.getMagnitude();
         _log.info("mag:" + magnitude);
 
-        this.depth = initilizer.getDepth();
+        this.depth = initializer.getDepth();
         _log.info("depth:" + depth);
 
-        this.dateTime = initilizer.getDateTime();
+        this.dateTime = initializer.getDateTime();
         _log.info("date:" + dateTime.toString());
 
-        this.epiIntensity = initilizer.getEpiIntensity();
+        this.epiIntensity = initializer.getEpiIntensity();
         _log.info("epi intensity:" + epiIntensity);
 
         // 可以通过地震事件本身的属性进行查询、计算得到的属性
-        this.countryAttribute = initilizer.getCountryAttribute();
+        this.countryAttribute = initializer.getCountryAttribute();
         _log.info("country name cn:" + countryAttribute.getNameCN());
         this.provinceAttribute = ProvinceAttribute.lookup(epiCenter);
         _log.info("province name cn:" + provinceAttribute.getNameCN());
 
-        this.circles = initilizer.getCircles();
-        _log.info("initilize circles, as follows:");
+        this.circles = initializer.getCircles();
+        _log.info("initialize circles, as follows:");
         for (IntensityCircle c : circles) {
             _log.info("circle, where intensity:" + c.getIntensity());
             _log.info("long axis:" + c.getLongAxis());
@@ -195,11 +195,10 @@ public abstract class BaseModel {
         float mag = ModelDal.getMagnitude(eqID);
         // EpiCenter epiCenter = SharedDal.getEpiCenter(eqID);
         float depth = SharedDal.getDepth(eqID);
-        // TODO 调用震中烈度新的计算方法
         float epi = 0;
         try {
             // epi = Epi.getValue(mag, depth);
-            epi = SharedCpt.getEpiIntensity(mag);
+            epi = SharedCpt.getEpiIntensity(mag, depth);
         } catch (Exception ex) {
             _log.info("没有查询到震级为" + mag + "，深度为" + depth + "的震中烈度！");
         }

@@ -1,7 +1,7 @@
 package org.semicloud.cas.model.us;
 
 import org.semicloud.cas.model.BaseModel;
-import org.semicloud.cas.model.ModelInitilizer;
+import org.semicloud.cas.model.ModelInitializer;
 
 /**
  * 救援设备分析模型
@@ -14,7 +14,7 @@ public class RESCUE_EQUIP extends BaseModel {
      * @param initilizer 模型初始化对象
      * @param modelName  模型名称
      */
-    public RESCUE_EQUIP(ModelInitilizer initilizer, String modelName) {
+    public RESCUE_EQUIP(ModelInitializer initilizer, String modelName) {
         super(initilizer, modelName);
     }
 

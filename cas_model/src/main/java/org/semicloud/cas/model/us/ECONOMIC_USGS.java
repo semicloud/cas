@@ -4,7 +4,7 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.apache.commons.math3.distribution.NormalDistribution;
 import org.semicloud.cas.model.BaseModel;
-import org.semicloud.cas.model.ModelInitilizer;
+import org.semicloud.cas.model.ModelInitializer;
 import org.semicloud.cas.model.al.ModelGal;
 import org.semicloud.cas.shared.intensity.IntensityCircle;
 import org.semicloud.utils.common.Convert;
@@ -30,7 +30,7 @@ public class ECONOMIC_USGS extends BaseModel {
      * @param initilizer 模型初始化对象
      * @param modelName  模型名称
      */
-    public ECONOMIC_USGS(ModelInitilizer initilizer, String modelName) {
+    public ECONOMIC_USGS(ModelInitializer initilizer, String modelName) {
         super(initilizer, modelName);
     }
 

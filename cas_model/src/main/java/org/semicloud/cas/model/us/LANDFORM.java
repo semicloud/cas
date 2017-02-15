@@ -2,7 +2,7 @@ package org.semicloud.cas.model.us;
 
 import net.sf.json.JSONObject;
 import org.semicloud.cas.model.BaseModel;
-import org.semicloud.cas.model.ModelInitilizer;
+import org.semicloud.cas.model.ModelInitializer;
 import org.semicloud.cas.model.al.ModelGal;
 
 import java.util.List;
@@ -19,7 +19,7 @@ public class LANDFORM extends BaseModel {
      * @param initilizer 模型初始化对象
      * @param modelName  模型名称
      */
-    public LANDFORM(ModelInitilizer initilizer, String modelName) {
+    public LANDFORM(ModelInitializer initilizer, String modelName) {
         super(initilizer, modelName);
     }
 

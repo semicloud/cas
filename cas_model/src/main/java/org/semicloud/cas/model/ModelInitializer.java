@@ -6,7 +6,7 @@ import org.semicloud.cas.model.attribute.ProvinceAttribute;
 import org.semicloud.cas.shared.EpiCenter;
 import org.semicloud.cas.shared.cfg.Settings;
 import org.semicloud.cas.shared.intensity.IntensityCircle;
-import org.semicloud.cas.shared.intensity.IntensityCircles;
+import org.semicloud.cas.shared.intensity.IntensityCircles2;
 import org.semicloud.cas.shared.utils.SharedCpt;
 import org.semicloud.utils.common.Convert;
 
@@ -18,7 +18,7 @@ import java.util.List;
  *
  * @author Victor
  */
-public class ModelInitilizer {
+public class ModelInitializer {
 
     /**
      * 日期格式化字符串
@@ -75,7 +75,7 @@ public class ModelInitilizer {
      * @param eqID   EQ_ID
      * @param taskID TASK_ID
      */
-    public ModelInitilizer(String eqID, String taskID) {
+    public ModelInitializer(String eqID, String taskID) {
         this.eqID = eqID;
         this.taskID = taskID;
         this.magnitude = ModelDal.getMagnitude(eqID);
@@ -84,12 +84,18 @@ public class ModelInitilizer {
         this.dateTime = Convert.stringToTimestamp(eqID.substring(13), DATETIME_PATTERN);
         this.startIntensity = Settings.getModelStartIntensity();
         // this.epiIntensity = SharedCpt.getEpiIntensity(magnitude);
-        // TODO 在这里使用了新的方法计算了震中烈度值
+        // 在这里使用了 王海鹰 的方法计算了震中烈度值
         // this.epiIntensity = Epi.getValue(magnitude, depth); // 6.3级地震，震中烈度是8；6.4级地震，震中烈度也是8
-        this.epiIntensity = SharedCpt.getEpiIntensity(magnitude);
-        this.circles = IntensityCircles.getCircles(epiCenter, startIntensity, epiIntensity, magnitude, depth).getList();
+        // 最老的方法，即震级减一然后乘以二分之三下取整的方法
+        // this.epiIntensity = SharedCpt.getEpiIntensity(magnitude);
+        // 高娜给的方法 imax = 4.15 + 0.11M^2 + 0.05*h
+        this.epiIntensity = SharedCpt.getEpiIntensity(magnitude, depth);
+        // this.circles = IntensityCircles.getCircles(epiCenter, startIntensity, epiIntensity, magnitude, depth).getList();
         this.countryAttribute = CountryAttribute.lookup(epiCenter);
         this.provinceAttribute = ProvinceAttribute.lookup(epiCenter);
+        // 2017-02-15 修改，由于新的烈度圈需要省份信息，所以必须设置国家和省份后才能初始化烈度圈
+        this.circles = IntensityCircles2.getCircles(epiCenter, countryAttribute.getCountryAbbr(),
+                provinceAttribute.getNameCN(), startIntensity, epiIntensity, magnitude, depth).getList();
     }
 
     /**

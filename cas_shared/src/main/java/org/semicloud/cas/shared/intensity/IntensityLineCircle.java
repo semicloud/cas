@@ -67,7 +67,7 @@ public class IntensityLineCircle {
         log.info("加载中国东部线源模型参数：" + StringUtils.join(parameters, ","));
         double a = parameters.get(0), b = parameters.get(1);
         double p1 = parameters.get(2), p2 = parameters.get(3), p3 = parameters.get(4), p4 = parameters.get(5);
-        float maxIntensity = SharedCpt.getEpiIntensity(magnitude);
+        float maxIntensity = SharedCpt.getEpiIntensity(magnitude, depth);
         float minIntensity = Settings.getModelStartIntensity();
         // 生成线源模型烈度圈
         List<IntensityLineCircle> lineCircles = new ArrayList<>();

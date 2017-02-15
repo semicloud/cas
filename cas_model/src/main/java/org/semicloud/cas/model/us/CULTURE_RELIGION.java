@@ -2,7 +2,7 @@ package org.semicloud.cas.model.us;
 
 import net.sf.json.JSONObject;
 import org.semicloud.cas.model.BaseModel;
-import org.semicloud.cas.model.ModelInitilizer;
+import org.semicloud.cas.model.ModelInitializer;
 import org.semicloud.cas.model.al.ModelGal;
 
 import java.util.List;
@@ -18,7 +18,7 @@ public class CULTURE_RELIGION extends BaseModel {
      * @param initilizer 模型初始化对象
      * @param modelName  模型名称
      */
-    public CULTURE_RELIGION(ModelInitilizer initilizer, String modelName) {
+    public CULTURE_RELIGION(ModelInitializer initilizer, String modelName) {
         super(initilizer, modelName);
     }
 
@@ -92,8 +92,8 @@ public class CULTURE_RELIGION extends BaseModel {
         return resultJSONObject.toString();
     }
     // public static void main(String[] args) {
-    // ModelInitilizer initilizer = new
-    // ModelInitilizer("N20400E03830020140203110846", "");
+    // ModelInitializer initilizer = new
+    // ModelInitializer("N20400E03830020140203110846", "");
     // CULTURE_RELIGION model = new CULTURE_RELIGION(initilizer, "");
     // System.out.println(model.getJson());
     // }

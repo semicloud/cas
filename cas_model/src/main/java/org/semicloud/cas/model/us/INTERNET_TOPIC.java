@@ -1,7 +1,7 @@
 package org.semicloud.cas.model.us;
 
 import org.semicloud.cas.model.BaseModel;
-import org.semicloud.cas.model.ModelInitilizer;
+import org.semicloud.cas.model.ModelInitializer;
 
 /**
  * 互联网主题分析模型，连接互联网智能处理系统，未实现
@@ -14,7 +14,7 @@ public class INTERNET_TOPIC extends BaseModel {
      * @param initilizer 模型初始化对象
      * @param modelName  模型名称
      */
-    public INTERNET_TOPIC(ModelInitilizer initilizer, String modelName) {
+    public INTERNET_TOPIC(ModelInitializer initilizer, String modelName) {
         super(initilizer, modelName);
     }
 

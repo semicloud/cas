@@ -1,7 +1,7 @@
 package org.semicloud.cas.model.us;
 
 import org.semicloud.cas.model.BaseModel;
-import org.semicloud.cas.model.ModelInitilizer;
+import org.semicloud.cas.model.ModelInitializer;
 
 /**
  * 地震烈度模型中的线源模型
@@ -14,7 +14,7 @@ public class INTENSITY_LINE extends BaseModel {
      * @param initilizer ModelInitilizer对象
      * @param modelName  模型名称
      */
-    public INTENSITY_LINE(ModelInitilizer initilizer, String modelName) {
+    public INTENSITY_LINE(ModelInitializer initilizer, String modelName) {
         super(initilizer, modelName);
     }
 

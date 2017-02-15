@@ -2,7 +2,7 @@ package org.semicloud.cas.model.us;
 
 import net.sf.json.JSONObject;
 import org.semicloud.cas.model.BaseModel;
-import org.semicloud.cas.model.ModelInitilizer;
+import org.semicloud.cas.model.ModelInitializer;
 import org.semicloud.cas.model.al.ModelGal;
 
 import java.util.List;
@@ -21,13 +21,13 @@ public class ECONOMIC_INFO extends BaseModel {
      * @param initilizer 模型初始化对象
      * @param modelName  模型名称
      */
-    public ECONOMIC_INFO(ModelInitilizer initilizer, String modelName) {
+    public ECONOMIC_INFO(ModelInitializer initilizer, String modelName) {
         super(initilizer, modelName);
     }
 
     // public static void main(String[] args) {
-    // ModelInitilizer initilizer = new
-    // ModelInitilizer("N62000W15180020140926015117", "MIN_30");
+    // ModelInitializer initilizer = new
+    // ModelInitializer("N62000W15180020140926015117", "MIN_30");
     // ECONOMIC_INFO economic = new ECONOMIC_INFO(initilizer, "");
     // System.out.println(economic.getJson());
     // }

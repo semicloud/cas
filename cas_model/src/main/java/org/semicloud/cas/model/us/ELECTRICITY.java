@@ -1,7 +1,7 @@
 package org.semicloud.cas.model.us;
 
 import org.semicloud.cas.model.BaseModel;
-import org.semicloud.cas.model.ModelInitilizer;
+import org.semicloud.cas.model.ModelInitializer;
 
 /**
  * 电力损失模型
@@ -14,7 +14,7 @@ public class ELECTRICITY extends BaseModel {
      * @param initilizer 模型初始化对象
      * @param modelName  模型名称
      */
-    public ELECTRICITY(ModelInitilizer initilizer, String modelName) {
+    public ELECTRICITY(ModelInitializer initilizer, String modelName) {
         super(initilizer, modelName);
     }
 

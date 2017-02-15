@@ -6,7 +6,7 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.apache.commons.lang.StringUtils;
 import org.semicloud.cas.model.BaseModel;
-import org.semicloud.cas.model.ModelInitilizer;
+import org.semicloud.cas.model.ModelInitializer;
 import org.semicloud.cas.model.al.ModelGal;
 import org.semicloud.cas.model.usv.INTENSITY_USV;
 import org.semicloud.cas.shared.intensity.IntensityCircle;
@@ -28,7 +28,7 @@ public class INTENSITY extends BaseModel {
      * @param initilizer 模型初始化对象
      * @param modelName  模型名称
      */
-    public INTENSITY(ModelInitilizer initilizer, String modelName) {
+    public INTENSITY(ModelInitializer initilizer, String modelName) {
         super(initilizer, modelName);
     }
 
@@ -105,9 +105,8 @@ public class INTENSITY extends BaseModel {
             INTENSITY_USV.createLineCircleIntensityDatasetVector(dataSetName, epiCenter, lineCircles);
             INTENSITY_USV.saveShapeFile(dataSetName);
             INTENSITY_USV.zipShapeFile(dataSetName);
-
         }
-        // TODO 先甭创建数据集了，搜救的数据库上有问题
+        // 先甭创建数据集了，搜救的数据库上有问题
         // INTENSITY_USV.createIntensityDatasetVector(eqID, resultJSONObject);
         // INTENSITY_USV.createIntensityTextDatasetVector(eqID,
         // resultJSONObject);

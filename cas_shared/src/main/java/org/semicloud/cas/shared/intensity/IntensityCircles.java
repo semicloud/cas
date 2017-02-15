@@ -19,8 +19,11 @@ import java.util.*;
 import static org.semicloud.utils.common.MyStringUtils.text;
 
 /**
- * The Class IntensityCircles.
+ * 旧的烈度模型实现类
+ * 2017年高娜给了新的烈度模型计算方法
+ * 详见 IntensityCircles2.java
  */
+@Deprecated
 public class IntensityCircles {
 
     /**
@@ -99,8 +102,6 @@ public class IntensityCircles {
         this.circles = new ArrayList<>();
         initilize();
     }
-
-    // TODO 在这里决定了要调用什么烈度模型
 
     /**
      * 根据模型代码加载椭圆烈度模型对象.

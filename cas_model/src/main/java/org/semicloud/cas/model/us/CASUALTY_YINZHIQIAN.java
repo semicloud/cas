@@ -7,7 +7,7 @@ import com.google.common.collect.Lists;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.math3.util.FastMath;
 import org.semicloud.cas.model.BaseModel;
-import org.semicloud.cas.model.ModelInitilizer;
+import org.semicloud.cas.model.ModelInitializer;
 import org.semicloud.cas.model.al.ModelGal;
 import org.semicloud.cas.shared.EpiCenter;
 import org.semicloud.cas.shared.cfg.Settings;
@@ -26,7 +26,7 @@ import static org.semicloud.utils.common.MyStringUtils.text;
 @Deprecated
 public class CASUALTY_YINZHIQIAN extends BaseModel {
 
-    public CASUALTY_YINZHIQIAN(ModelInitilizer initilizer, String modelName) {
+    public CASUALTY_YINZHIQIAN(ModelInitializer initilizer, String modelName) {
         super(initilizer, modelName);
     }
 
@@ -86,7 +86,7 @@ public class CASUALTY_YINZHIQIAN extends BaseModel {
     }
 
     public static void main(String[] args) {
-        ModelInitilizer initilizer = new ModelInitilizer("N30300E10300020130430112325", "");
+        ModelInitializer initilizer = new ModelInitializer("N30300E10300020130430112325", "");
         CASUALTY_YINZHIQIAN model = new CASUALTY_YINZHIQIAN(initilizer, "");
         // System.out.println(initilizer.getCircles());
         System.out.println(model.getJson());

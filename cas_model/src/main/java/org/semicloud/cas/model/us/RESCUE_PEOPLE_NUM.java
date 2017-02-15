@@ -1,7 +1,7 @@
 package org.semicloud.cas.model.us;
 
 import org.semicloud.cas.model.BaseModel;
-import org.semicloud.cas.model.ModelInitilizer;
+import org.semicloud.cas.model.ModelInitializer;
 import org.semicloud.cas.model.al.ModelDal;
 import org.semicloud.cas.shared.utils.SharedCpt;
 import org.semicloud.utils.common.Convert;
@@ -24,7 +24,7 @@ public class RESCUE_PEOPLE_NUM extends BaseModel {
      * @param initilizer 模型初始化对象
      * @param modelName  模型名称
      */
-    public RESCUE_PEOPLE_NUM(ModelInitilizer initilizer, String modelName) {
+    public RESCUE_PEOPLE_NUM(ModelInitializer initilizer, String modelName) {
         super(initilizer, modelName);
     }
 

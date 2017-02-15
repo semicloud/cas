@@ -42,6 +42,7 @@
         <mapping province='重庆市' region='四川地区'/>
         <!-- 新疆内蒙 -->
         <mapping province='新疆维吾尔自治区' region='新疆地区'/>
+        <!--内蒙古自治区在代码中调整，详见 IntensityCircles2.initialize() 方法-->
         <mapping province='内蒙古自治区' region='内蒙古自治区'/>
         <!-- 云南省 -->
         <mapping province='云南省' region='云南地区'/>

@@ -3,7 +3,7 @@ package org.semicloud.cas.model.us;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.semicloud.cas.model.BaseModel;
-import org.semicloud.cas.model.ModelInitilizer;
+import org.semicloud.cas.model.ModelInitializer;
 import org.semicloud.cas.model.al.ModelGal;
 import org.semicloud.cas.shared.cfg.Settings;
 
@@ -24,13 +24,13 @@ public class ACTIVE_FAULT extends BaseModel {
      * @param initilizer 模型初始化对象
      * @param modelName  模型名称
      */
-    public ACTIVE_FAULT(ModelInitilizer initilizer, String modelName) {
+    public ACTIVE_FAULT(ModelInitializer initilizer, String modelName) {
         super(initilizer, modelName);
     }
 
     public static void main(String[] args) {
         // 70.8 36.5
-        ModelInitilizer initilizer = new ModelInitilizer("N36500E07080020151027094119",
+        ModelInitializer initilizer = new ModelInitializer("N36500E07080020151027094119",
                 "N36500E07080020151027094119_IMME");
         ACTIVE_FAULT active_FAULT = new ACTIVE_FAULT(initilizer, "");
         active_FAULT.getJson();

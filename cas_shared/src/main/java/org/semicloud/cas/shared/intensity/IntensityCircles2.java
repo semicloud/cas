@@ -13,13 +13,17 @@ import org.semicloud.cas.shared.cfg.Settings;
 import org.semicloud.cas.shared.intensity.oval.MComputer;
 import org.semicloud.cas.shared.intensity.oval2.OvalParams;
 
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import static org.semicloud.utils.common.MyStringUtils.text;
 
 /**
- * 烈度模型2.0 省的名字配合IntensityParams.xml加载烈度模型
+ * 烈度模型2.0
+ * 省的名字配合IntensityParams.xml加载烈度模型
+ * 2017年 应甲方要求添加
  *
  * @author Semicloud
  */
@@ -78,7 +82,7 @@ public class IntensityCircles2 {
     /**
      * The log.
      */
-    private static Log log = LogFactory.getLog(IntensityCircles.class);
+    private static Log log = LogFactory.getLog(IntensityCircles2.class);
 
     /**
      * 初始化烈度圈
@@ -99,7 +103,7 @@ public class IntensityCircles2 {
         this.country = country;
         this.province = province;
         this.circles = new ArrayList<>();
-        initilize2();
+        initialize();
     }
 
     /**
@@ -123,24 +127,36 @@ public class IntensityCircles2 {
         this.magnitude = magnitude;
         this.depth = depth;
         this.circles = new ArrayList<>();
-        initilize2();
+        initialize();
     }
 
     /**
      * 初始化烈度圈
      */
-    private void initilize2() {
+    private void initialize() {
         // 国内使用国内的烈度模型，其他国家使用圆模型
+        // 国内的地震，震级小于7.5使用点源模型，大于等于7.5使用线源模型；程序中，不管震级几级，都调用线源模型
+        // 震级小于7.5时，如果地震发生在内蒙古，则以包头的经度109.8度作为分界线
+        // 大于109.8使用东北模型
+        // 小于109.8使用新疆模型
         if (country.equals("CN")) {
-            // 震级小于7.5，使用点源模型
+            float baoTouLongitude = 109.1f; // 包头的经纬度
             String regionName = Settings.getModelRegionByProvince(province);
             if (StringUtils.isNotBlank(regionName)) {
-                log.info(text("Earthquake occurs at {0}, using intensity model 【{1}】", province, regionName));
-                OvalParams params = Settings.getOvalParams(regionName);
-                log.info("load model paramtetrs：\n" + params);
+                OvalParams params = null;
+                if (!Objects.equals(regionName, "内蒙古自治区")) {
+                    log.info(text("地震发生在{0}，使用烈度模型【{1}】", province, regionName));
+                    params = Settings.getOvalParams(regionName);
+                    log.info("加载烈度模型参数：\n" + params);
+                } else {
+                    params = this.epiCenter.getLongitude() >= baoTouLongitude ?
+                            Settings.getOvalParams("东北地区") :
+                            Settings.getOvalParams("新疆地区");
+                    log.info("地震发生在内蒙古地区，按照包头经度加载烈度模型：" + params);
+                }
                 initOvalCircles(params, regionName);
             } else {
-                log.error(text("ERROR! Proinve {0} has not mapping to a model!", province));
+                log.error(text("ERROR! 没有为 {0} 找到一个烈度模型！", province));
             }
         } else {
             // 国外地震，直接使用圆模型
@@ -169,22 +185,42 @@ public class IntensityCircles2 {
                     * MAP_UNIT);
             ic.setAzimuth(azimuth);
             ic.setIntensity(i);
-            // 如果长轴或短轴出现负数，就不加入烈度集合了
+            // 如果烈度圈计算出现了负数，那就取上一个圈儿的长短轴（该圈儿的长短轴需不是负数）各乘以一个系数，比如1/2
             if (ic.getLongAxis() > 0 && ic.getShortAxis() > 0) {
                 circles.add(ic);
             } else {
-                // 如果烈度圈计算出现了负数，那就将长短轴的长度都设置为2000
-                // 等甲方那边调参数再改为直接加模型...咨询一下高娜再说吧
-                ic.setLongAxis(2000);
-                ic.setShortAxis(2000);
+                log.info("!!!!!Finding negative axis: " + ic.getLongAxis() +
+                        "," + ic.getShortAxis() + " at intensity=" + ic.getIntensity());
+                // 乘以的系数
+                double factor = 0.5;
+                float preIntensity = i - STEP;
+                IntensityCircle preCircle = this.circles.stream().
+                        filter(circle -> circle.getIntensity() == preIntensity)
+                        .findFirst().orElse(null);
+                if (preCircle != null) {
+                    ic.setLongAxis(preCircle.getLongAxis() * factor);
+                    ic.setShortAxis(preCircle.getShortAxis() * factor);
+                    log.info(MessageFormat.format("modify to: {0},{1}, with preIntensity={2}(L:{3},S:{4}) "
+                                    + "and factor={5}", ic.getLongAxis(), ic.getShortAxis(), preIntensity,
+                            preCircle.getLongAxis(), preCircle.getShortAxis(), factor));
+                } else {
+                    log.error("Can not find IntensityCircle with intensity " + preCircle);
+                }
                 circles.add(ic);
-                log.warn(text("intensity {0} has negative number!({1},{2})", i, ic.getLongAxis(), ic.getShortAxis()));
             }
+        }
+        log.info("Initilized Complete:");
+        for (IntensityCircle intensityCircle : this.circles) {
+            log.info("\tInteisty: " + intensityCircle.getIntensity());
+            log.info("\tLong Axis: " + intensityCircle.getLongAxis());
+            log.info("\tShort Axis: " + intensityCircle.getShortAxis());
+            log.info("\tAzimuth: " + intensityCircle.getAzimuth());
+            log.info("-----------------");
         }
     }
 
     /**
-     * 初始化圆烈度对象.
+     * 初始化圆烈度对象,用于国外地震
      */
     private void initCircleCircles() {
         log.info("use circle intensity model");

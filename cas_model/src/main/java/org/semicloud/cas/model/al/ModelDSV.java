@@ -1,6 +1,6 @@
 package org.semicloud.cas.model.al;
 
-import org.semicloud.cas.model.ModelInitilizer;
+import org.semicloud.cas.model.ModelInitializer;
 import org.semicloud.cas.model.us.*;
 
 /**
@@ -12,7 +12,7 @@ import org.semicloud.cas.model.us.*;
 public class ModelDSV {
     public static void main(String[] args) {
         String eqID = "N41000E14320020141011103546";
-        ModelInitilizer initilizer = new ModelInitilizer(eqID, eqID);
+        ModelInitializer initilizer = new ModelInitializer(eqID, eqID);
 
         INTENSITY intensity = new INTENSITY(initilizer, "");
         System.out.println(intensity.getJson());

@@ -1,7 +1,7 @@
 package org.semicloud.cas.model.us;
 
 import org.semicloud.cas.model.BaseModel;
-import org.semicloud.cas.model.ModelInitilizer;
+import org.semicloud.cas.model.ModelInitializer;
 import org.semicloud.utils.common.Convert;
 
 import java.util.Random;
@@ -17,7 +17,7 @@ public class COMMUNICATION extends BaseModel {
      * @param initilizer 模型初始化对象
      * @param modelName  模型名称
      */
-    public COMMUNICATION(ModelInitilizer initilizer, String modelName) {
+    public COMMUNICATION(ModelInitializer initilizer, String modelName) {
         super(initilizer, modelName);
     }
 
